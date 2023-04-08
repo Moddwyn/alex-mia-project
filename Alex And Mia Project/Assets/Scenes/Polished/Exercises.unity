@@ -2609,7 +2609,7 @@ GameObject:
   - component: {fileID: 734418476}
   - component: {fileID: 734418475}
   m_Layer: 5
-  m_Name: Elbows To Knees Button
+  m_Name: Lunges Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3151,7 +3151,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Elbows To Knees
+  m_text: Lunges
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d25534d74bfc9d44bb76f99dde1154ab, type: 2}
   m_sharedMaterial: {fileID: 8029534652553028452, guid: d25534d74bfc9d44bb76f99dde1154ab, type: 2}
@@ -4515,8 +4515,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 77.17503, y: 77.174995}
-  m_SizeDelta: {x: 107.843, y: 195.38}
+  m_AnchoredPosition: {x: 77.17503, y: 77.17501}
+  m_SizeDelta: {x: 136.18, y: 136.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591406457
 MonoBehaviour:
@@ -4553,7 +4553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9449f16e399b0a74a9691c437b5e495e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7748371ba31b47a46945689655b41022, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
