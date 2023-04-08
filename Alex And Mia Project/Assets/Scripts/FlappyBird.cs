@@ -43,10 +43,9 @@ public class FlappyBird : MonoBehaviour
     void BirdMovement()
     {
         bird.transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime);
-
         if(!jjPose)
         {
-            if(rArm.transform.rotation.z <= 360 && rArm.transform.rotation.z >= 270)
+            if(rArm.transform.rotation.z <= 80 && rArm.transform.rotation.z >= 0)
             {
                 jjPose = true;
             }
