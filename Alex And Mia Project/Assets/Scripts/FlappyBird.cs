@@ -18,6 +18,14 @@ public class FlappyBird : MonoBehaviour
     public float pipeSideSpacing; 
     public int amount;
 
+    [Space(20)]
+    public Transform rArm;
+    public Transform lArm;
+    public Transform rLeg;
+    public Transform lLeg;
+
+    bool jjPose;
+
     void Start()
     {
         SpawnPipes();
@@ -35,9 +43,20 @@ public class FlappyBird : MonoBehaviour
     void BirdMovement()
     {
         bird.transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime);
-        if (Input.GetMouseButtonDown(0))
+
+        if(!jjPose)
+        {
+            if(rArm.transform.rotation.z <= 360 && rArm.transform.rotation.z >= 270)
+            {
+                jjPose = true;
+            }
+        }
+    
+
+        if (jjPose)
         {
             bird.velocity = Vector3.up * jumpForce;
+            jjPose = false;
         }
     }
 
