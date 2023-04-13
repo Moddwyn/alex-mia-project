@@ -19,12 +19,14 @@ public class FlappyBird : MonoBehaviour
     public int amount;
 
     [Space(20)]
-    public Transform rArm;
-    public Transform lArm;
-    public Transform rLeg;
-    public Transform lLeg;
+    Transform rWrist;
+    Transform lWrist;
+    Transform rLeg;
+    Transform lLeg;
+    Transform nose;
 
-    bool jjPose;
+    bool switchPose;
+    bool jump;
 
     void Start()
     {
@@ -42,20 +44,43 @@ public class FlappyBird : MonoBehaviour
 
     void BirdMovement()
     {
-        bird.transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime);
-        if(!jjPose)
+        bird.velocity = new Vector3(bird.velocity.x, bird.velocity.y, (bird.transform.forward * forwardSpeed).z);
+
+        if(lWrist == null && PoseEstimator.Instance.ready)
         {
-            if(rArm.transform.rotation.z <= 80 && rArm.transform.rotation.z >= 0)
+            if(GameObject.Find("leftWrist"))
+                lWrist = GameObject.Find("leftWrist").transform;
+        }
+        if(rWrist == null && PoseEstimator.Instance.ready)
+        {
+            if(GameObject.Find("rightWrist"))
+                rWrist = GameObject.Find("rightWrist").transform;
+        }
+        if(nose == null && PoseEstimator.Instance.ready)
+        {
+            if(GameObject.Find("nose"))
+                nose = GameObject.Find("nose").transform;
+        }
+
+        if(lWrist != null && rWrist != null && nose != null && PoseEstimator.Instance.ready)
+        {
+            if((lWrist.position.y > nose.position.y) && (rWrist.position.y > nose.position.y) && !switchPose)
             {
-                jjPose = true;
+                jump = true;
+                switchPose = true;
+            }
+            if((lWrist.position.y < nose.position.y) && (rWrist.position.y < nose.position.y) && switchPose)
+            {
+                jump = true;
+                switchPose = false;
             }
         }
-    
 
-        if (jjPose)
+        if (jump)
         {
             bird.velocity = Vector3.up * jumpForce;
-            jjPose = false;
+            print("Jump");
+            jump = false;
         }
     }
 
