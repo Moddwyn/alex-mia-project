@@ -1403,7 +1403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &756023554
 Transform:
   m_ObjectHideFlags: 0
@@ -2503,6 +2503,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6788538757290762320, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 4a96b4b1fb84a564691e51032076fd76, type: 2}
+    - target: {fileID: 6788538757290762320, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6788538757290762322, guid: ad4137f595ec8e2449cacca9df7d3735, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3699,7 +3707,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868588844}
-  - component: {fileID: 1868588843}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3707,27 +3714,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1868588843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868588842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bc9c209b287cf24daebf4f82ef4f42e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bird: {fileID: 2090939675}
-  cam: {fileID: 1863711717}
-  transitionTime: 10
-  jumpForce: 7
-  forwardSpeed: 1
-  pipePrefab: {fileID: 6510845278135654503, guid: c5d49fb75a69fff40966c29edb4bc49c, type: 3}
-  pipeYSpacingRange: {x: -4, y: 4}
-  pipeSideSpacing: 6
-  amount: 50
 --- !u!4 &1868588844
 Transform:
   m_ObjectHideFlags: 0
@@ -3947,3 +3933,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2090939680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079454650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc9c209b287cf24daebf4f82ef4f42e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bird: {fileID: 2090939675}
+  cam: {fileID: 1863711717}
+  transitionTime: 10
+  jumpForce: 7
+  forwardSpeed: 1
+  pipePrefab: {fileID: 6510845278135654503, guid: c5d49fb75a69fff40966c29edb4bc49c, type: 3}
+  pipeYSpacingRange: {x: -4, y: 4}
+  pipeSideSpacing: 6
+  amount: 50

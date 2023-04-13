@@ -27,6 +27,7 @@ public class FlappyBird : MonoBehaviour
 
     bool switchPose;
     bool jump;
+    bool dead;
 
     void Start()
     {
@@ -34,7 +35,8 @@ public class FlappyBird : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        if(!dead)
         cam.position = Vector3.MoveTowards(cam.position, 
         new Vector3(cam.position.x, bird.position.y, bird.position.z), 
         Time.deltaTime * transitionTime);
@@ -44,7 +46,8 @@ public class FlappyBird : MonoBehaviour
 
     void BirdMovement()
     {
-        bird.velocity = new Vector3(bird.velocity.x, bird.velocity.y, (bird.transform.forward * forwardSpeed).z);
+        if(!dead)
+            bird.velocity = new Vector3(bird.velocity.x, bird.velocity.y, (bird.transform.forward * forwardSpeed).z);
 
         if(lWrist == null && PoseEstimator.Instance.ready)
         {
@@ -71,15 +74,14 @@ public class FlappyBird : MonoBehaviour
             }
             if((lWrist.position.y < nose.position.y) && (rWrist.position.y < nose.position.y) && switchPose)
             {
-                jump = true;
                 switchPose = false;
             }
         }
 
-        if (jump)
+        if (jump && !dead)
         {
             bird.velocity = Vector3.up * jumpForce;
-            print("Jump");
+            print("jump");
             jump = false;
         }
     }
@@ -97,4 +99,15 @@ public class FlappyBird : MonoBehaviour
             lastZ += pipeSideSpacing;
         }
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.transform.tag == "Pipe")
+        {
+            dead = true;
+            bird.GetComponent<Collider>().enabled = false;
+            bird.GetComponent<Animator>().SetBool("Death", true);
+        }
+    }
+
 }

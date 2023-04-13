@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6951757963436599163}
   - component: {fileID: 420771598461699090}
   - component: {fileID: 5847821342661498520}
-  - component: {fileID: 7961847341973339600}
+  - component: {fileID: 3665301153160162700}
   m_Layer: 0
   m_Name: SM_PipeMiddleShort_LOD1
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -85,8 +85,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7961847341973339600
-MeshCollider:
+--- !u!65 &3665301153160162700
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,10 +95,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4005895171516727, guid: 1e0268b3047ceae49a02dfb3f903d423, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.23946181, y: 0.59164524, z: 0.23850814}
+  m_Center: {x: -0.000001758337, y: 0.2965685, z: 0.000000007450581}
 --- !u!1 &6510845278135654503
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +110,7 @@ GameObject:
   - component: {fileID: 1678404830910018988}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -167,10 +166,10 @@ GameObject:
   - component: {fileID: 3935612116608918081}
   - component: {fileID: 3842055173905790115}
   - component: {fileID: 3048396462992957132}
-  - component: {fileID: 3251097224053819474}
+  - component: {fileID: 836365038291085891}
   m_Layer: 0
   m_Name: SM_PipeMiddleShort_LOD0
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -241,8 +240,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3251097224053819474
-MeshCollider:
+--- !u!65 &836365038291085891
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -251,7 +250,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7896010683641353316, guid: 1e0268b3047ceae49a02dfb3f903d423, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.23947561, y: 0.59143317, z: 0.2385111}
+  m_Center: {x: 0.0000051409006, y: 0.29651356, z: -0.000000007450581}
