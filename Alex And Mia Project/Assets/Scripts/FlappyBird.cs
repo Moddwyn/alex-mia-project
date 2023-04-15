@@ -19,6 +19,7 @@ public class FlappyBird : MonoBehaviour
     [Space(20)]
     public GameObject pipePrefab;       // Prefab of the pipe to spawn
     public Vector2 pipeYSpacingRange;
+    public float ySpaceGap;
     public float pipeSideSpacing; 
     public int amount;
 
@@ -39,6 +40,11 @@ public class FlappyBird : MonoBehaviour
     void Start()
     {
         SpawnPipes();
+    }
+
+    public void StartGame()
+    {
+        gameStart = true;
     }
 
     void Update()
@@ -102,7 +108,7 @@ public class FlappyBird : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             Vector3 bottomPipePosition = new Vector3(0, -12 + Random.Range(pipeYSpacingRange.x, pipeYSpacingRange.y), lastZ);
-            Vector3 topPipePosition = new Vector3(0, bottomPipePosition.y + 16, lastZ);
+            Vector3 topPipePosition = new Vector3(0, bottomPipePosition.y + ySpaceGap, lastZ);
             Instantiate(pipePrefab, topPipePosition, Quaternion.identity);
             Instantiate(pipePrefab, bottomPipePosition, Quaternion.identity);
 
