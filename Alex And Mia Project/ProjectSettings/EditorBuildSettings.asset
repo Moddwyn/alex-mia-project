@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Polished/Main.unity
+    guid: aa398f8d532b68f459beff47a96a37e9
+  - enabled: 1
+    path: Assets/Scenes/Polished/Exercises/Flappy Bird - Jumping Jacks.unity
+    guid: 4e19f2f2245442d4a90b65a7f4d5ca1e
   m_configObjects: {}

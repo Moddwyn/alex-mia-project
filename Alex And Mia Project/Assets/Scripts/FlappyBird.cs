@@ -6,6 +6,10 @@ public class FlappyBird : MonoBehaviour
 {
     public Rigidbody bird;
     public Transform cam;
+    public AudioSource sfxSource;
+    public AudioClip flapSound;
+    public AudioClip hitSound;
+    public AudioClip deadSound;
 
     [Space(20)]
     public float transitionTime;
@@ -29,6 +33,9 @@ public class FlappyBird : MonoBehaviour
     bool jump;
     bool dead;
 
+    [Space(20)]
+    public bool gameStart;
+
     void Start()
     {
         SpawnPipes();
@@ -41,7 +48,10 @@ public class FlappyBird : MonoBehaviour
         new Vector3(cam.position.x, bird.position.y, bird.position.z), 
         Time.deltaTime * transitionTime);
 
-        BirdMovement();
+        if(gameStart)
+            BirdMovement();
+
+        bird.isKinematic = !gameStart;
     }
 
     void BirdMovement()
@@ -81,7 +91,7 @@ public class FlappyBird : MonoBehaviour
         if (jump && !dead)
         {
             bird.velocity = Vector3.up * jumpForce;
-            print("jump");
+            sfxSource.PlayOneShot(flapSound);
             jump = false;
         }
     }
@@ -105,6 +115,8 @@ public class FlappyBird : MonoBehaviour
         if(other.transform.tag == "Pipe")
         {
             dead = true;
+            sfxSource.PlayOneShot(hitSound);
+            sfxSource.PlayOneShot(deadSound);
             bird.GetComponent<Collider>().enabled = false;
             bird.GetComponent<Animator>().SetBool("Death", true);
         }
