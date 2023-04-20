@@ -58,6 +58,11 @@ public class FlappyBird : MonoBehaviour
             BirdMovement();
 
         bird.isKinematic = !gameStart;
+
+        if(bird.position.y >= 15 || bird.position.y <= -20)
+        {
+            dead = true;
+        }
     }
 
     void BirdMovement()
@@ -107,7 +112,7 @@ public class FlappyBird : MonoBehaviour
         float lastZ = 0;
         for (int i = 0; i < amount; i++)
         {
-            Vector3 bottomPipePosition = new Vector3(0, -12 + Random.Range(pipeYSpacingRange.x, pipeYSpacingRange.y), lastZ);
+            Vector3 bottomPipePosition = new Vector3(0, -35 + Random.Range(pipeYSpacingRange.x, pipeYSpacingRange.y), lastZ);
             Vector3 topPipePosition = new Vector3(0, bottomPipePosition.y + ySpaceGap, lastZ);
             Instantiate(pipePrefab, topPipePosition, Quaternion.identity);
             Instantiate(pipePrefab, bottomPipePosition, Quaternion.identity);
