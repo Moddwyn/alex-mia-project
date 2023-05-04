@@ -592,6 +592,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1552565066}
     m_Modifications:
+    - target: {fileID: 1185614169, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185614169, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
+      propertyPath: distanceHit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185614169, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
+      propertyPath: rockExplodeParticle
+      value: 
+      objectReference: {fileID: 6209521819666306778, guid: ec442a56e278c5b40adaaaf64f8efe51, type: 3}
     - target: {fileID: 1446742771643072, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_Name
       value: Katana Right
@@ -599,18 +611,6 @@ PrefabInstance:
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.030000003
       objectReference: {fileID: 0}
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -622,19 +622,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.90999985
+      value: 0.9099998
       objectReference: {fileID: 0}
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.026532171
+      value: -0.02653217
       objectReference: {fileID: 0}
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14812699
+      value: 0.148127
       objectReference: {fileID: 0}
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.97312516
+      value: 0.9731252
       objectReference: {fileID: 0}
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_LocalRotation.z
@@ -752,6 +752,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1552565066}
     m_Modifications:
+    - target: {fileID: 1185614169, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
+      propertyPath: hand
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185614169, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185614169, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
+      propertyPath: distanceHit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185614169, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
+      propertyPath: rockExplodeParticle
+      value: 
+      objectReference: {fileID: 6209521819666306778, guid: ec442a56e278c5b40adaaaf64f8efe51, type: 3}
     - target: {fileID: 1446742771643072, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_Name
       value: Katana Left
@@ -762,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.029999992
+      value: -0.02999999
       objectReference: {fileID: 0}
     - target: {fileID: 4264288977297608, guid: 8223671c91016c443a036ff8e0f46e98, type: 3}
       propertyPath: m_LocalScale.y

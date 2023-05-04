@@ -114,7 +114,7 @@ public class FirstPersonController : MonoBehaviour
         currentMouseLook += appliedMouseDelta;
         currentMouseLook.y = Mathf.Clamp(currentMouseLook.y, -90, 90);
 
-        //charCamera.localRotation = Quaternion.AngleAxis(-currentMouseLook.y, Vector3.right);
+        charCamera.localRotation = Quaternion.AngleAxis(-currentMouseLook.y, Vector3.right);
         transform.localRotation = Quaternion.AngleAxis(currentMouseLook.x, Vector3.up);
     }
 
