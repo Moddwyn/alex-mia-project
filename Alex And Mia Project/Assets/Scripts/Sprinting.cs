@@ -7,7 +7,10 @@ public class Sprinting : MonoBehaviour
 {
     public float distance;
     public float time;
+
+    [Header("Debug")]
     public bool gameStart;
+    public bool bonesActive;
 
     [Space(20)]
     public TMP_Text timeText;
@@ -16,10 +19,8 @@ public class Sprinting : MonoBehaviour
     float slowTime = 2;
     float timeTillSlow;
 
-    Transform rHip;
-    Transform lHip;
-    Transform rKnee;
-    Transform lKnee;
+    Transform rAnkle;
+    Transform lAnkle;
     bool switchPose;
     bool run;
 
@@ -34,7 +35,7 @@ public class Sprinting : MonoBehaviour
         timeText.text = "Time Left: " + time.ToString("F2");
         distanceText.text = "Distance: " + distance.ToString("F2");
 
-        if(gameStart)
+        if (gameStart)
         {
             Movements();
             time -= Time.unscaledDeltaTime;
@@ -44,40 +45,35 @@ public class Sprinting : MonoBehaviour
 
     void Movements()
     {
-        if(rHip == null && PoseEstimator.Instance.ready)
+        if (rAnkle == null && PoseEstimator.Instance.ready)
         {
-            if(GameObject.Find("rightHip"))
-                rHip = GameObject.Find("rightHip").transform;
+            if (GameObject.Find("rightAnkle"))
+                rAnkle = GameObject.Find("rightAnkle").transform;
         }
-        if(lHip == null && PoseEstimator.Instance.ready)
+        if (lAnkle == null && PoseEstimator.Instance.ready)
         {
-            if(GameObject.Find("leftHip"))
-                lHip = GameObject.Find("leftHip").transform;
-        }
-        if(rKnee == null && PoseEstimator.Instance.ready)
-        {
-            if(GameObject.Find("rightKnee"))
-                rKnee = GameObject.Find("rightKnee").transform;
-        }
-        if(lKnee == null && PoseEstimator.Instance.ready)
-        {
-            if(GameObject.Find("leftKnee"))
-                lKnee = GameObject.Find("leftKnee").transform;
+            if (GameObject.Find("leftAnkle"))
+                lAnkle = GameObject.Find("leftAnkle").transform;
         }
 
-        if(rHip != null && lHip != null && rKnee != null && lKnee != null && PoseEstimator.Instance.ready)
+        if (lAnkle != null && rAnkle != null && PoseEstimator.Instance.ready)
         {
-            if((rKnee.position.y >= rHip.position.y) && !switchPose)
+            if (lAnkle.GetComponent<MeshRenderer>().enabled && lAnkle.GetComponent<MeshRenderer>().enabled)
             {
-                run = true;
-                timeTillSlow = slowTime;
-                switchPose = true;
-            }
-            if((lKnee.position.y <= lHip.position.y) && switchPose)
-            {
-                switchPose = false;
-            }
-        }
+                bonesActive = true;
+                if ((rAnkle.position.y >= lAnkle.position.y) && !switchPose)
+                {
+                    run = true;
+                    timeTillSlow = slowTime;
+                    switchPose = true;
+                }
+                if ((lAnkle.position.y >= rAnkle.position.y) && switchPose)
+                {
+                    switchPose = false;
+                }
+            } else
+                bonesActive = false;
+        } else bonesActive = false;
 
         if (run && time > 0)
         {
@@ -85,7 +81,7 @@ public class Sprinting : MonoBehaviour
             distance += Time.deltaTime;
         }
 
-        if(timeTillSlow <= 0)
+        if (timeTillSlow <= 0 || !bonesActive)
         {
             run = false;
             Time.timeScale = 0.05f;

@@ -1588,6 +1588,7 @@ MonoBehaviour:
   distance: 0
   time: 100
   gameStart: 0
+  bonesActive: 0
   timeText: {fileID: 1716671782}
   distanceText: {fileID: 10533580}
 --- !u!1 &631878906
