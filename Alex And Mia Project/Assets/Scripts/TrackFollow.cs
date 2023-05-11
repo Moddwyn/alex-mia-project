@@ -31,6 +31,8 @@ public class TrackFollow : MonoBehaviour
         [FormerlySerializedAs("m_CurrentDistance")]
         public float m_Position;
 
+        public bool independentRot;
+
         void FixedUpdate()
         {
             if (m_UpdateMethod == UpdateMethod.FixedUpdate)
@@ -59,6 +61,8 @@ public class TrackFollow : MonoBehaviour
                 m_Position = m_Path.StandardizeUnit(distanceAlongPath, m_PositionUnits);
                 Vector3 pos = m_Path.EvaluatePositionAtUnit(m_Position, m_PositionUnits);
                 transform.position = new Vector3(pos.x, transform.position.y, pos.z);
+
+                if(!independentRot)
                 transform.rotation = m_Path.EvaluateOrientationAtUnit(m_Position, m_PositionUnits);
             }
         }

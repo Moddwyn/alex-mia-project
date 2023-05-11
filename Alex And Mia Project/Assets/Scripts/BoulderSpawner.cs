@@ -1,41 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BoulderSpawner : MonoBehaviour
 {
+    public List<TrackFollow> spawnedBouldersRight = new List<TrackFollow>();
+    public List<TrackFollow> spawnedBouldersLeft = new List<TrackFollow>();
     public Transform[] boulders;
-    public Vector2 sizeRange;
-    public Collider spawnArea;
-    public float spawnDelay;
+    public Vector2 spawnDelay;
+    public float speed = 20;
+    public CinemachineSmoothPath leftTrack;
+    public CinemachineSmoothPath rightTrack;
 
-    int spawnAmt;
+    public static BoulderSpawner Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
-        spawnAmt = 3;
-        StartCoroutine(SpawnBoulder());
+        StartCoroutine(SpawnBoulder(leftTrack));
+        StartCoroutine(SpawnBoulder(rightTrack));
     }
 
-    IEnumerator SpawnBoulder()
+    IEnumerator SpawnBoulder(CinemachineSmoothPath path)
     {
-        for (int i = 0; i < spawnAmt; i++)
+        Vector3 pos = path.EvaluatePositionAtUnit(0, CinemachinePathBase.PositionUnits.Distance);
+        Transform spawned = Instantiate(boulders[Random.Range(0, boulders.Length)], pos, Quaternion.identity);
+        TrackFollow follow = spawned.AddComponent<TrackFollow>();
+        follow.m_Path = path;
+        follow.m_Speed = 20;
+        follow.m_Position = 0;
+        follow.independentRot = true;
+
+        if(path == leftTrack) spawnedBouldersLeft.Add(follow);
+        else spawnedBouldersRight.Add(follow);
+
+        yield return new WaitForSeconds(Random.Range(spawnDelay.x, spawnDelay.y));
+        StartCoroutine(SpawnBoulder(path));
+    }
+
+    void Update()
+    {
+        RemoveMissingOrEmptyItems();
+    }
+
+    private void RemoveMissingOrEmptyItems()
+    {
+        for (int i = spawnedBouldersRight.Count - 1; i >= 0; i--)
         {
-            Transform spawned = Instantiate(boulders[Random.Range(0, boulders.Length)], GetRandomSpawnPosition(), Quaternion.identity);
-            spawned.localScale = Vector3.one * Random.Range(sizeRange.x, sizeRange.y);
+            if (spawnedBouldersRight[i] == null || spawnedBouldersRight[i].gameObject == null)
+            {
+                spawnedBouldersRight.RemoveAt(i);
+            }
         }
-        yield return new WaitForSeconds(spawnDelay);
-        spawnAmt++;
-        StartCoroutine(SpawnBoulder());
-    }
-
-    private Vector3 GetRandomSpawnPosition()
-    {
-        Vector3 center = spawnArea.bounds.center;
-        Vector3 size = spawnArea.bounds.size;
-        float x = Random.Range(center.x - size.x / 2, center.x + size.x / 2);
-        float y = Random.Range(center.y - size.y / 2, center.y + size.y / 2);
-        float z = Random.Range(center.z - size.z / 2, center.z + size.z / 2);
-        return new Vector3(x, y, z);
+        for (int i = spawnedBouldersLeft.Count - 1; i >= 0; i--)
+        {
+            if (spawnedBouldersLeft[i] == null || spawnedBouldersLeft[i].gameObject == null)
+            {
+                spawnedBouldersLeft.RemoveAt(i);
+            }
+        }
     }
 }

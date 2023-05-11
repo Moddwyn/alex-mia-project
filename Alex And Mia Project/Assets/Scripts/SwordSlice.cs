@@ -6,10 +6,10 @@ public class SwordSlice : MonoBehaviour
 {
     public enum Hand { Left, Right };
     public Hand hand;
-    public float distanceHit;
+    public float distanceHit = 290;
+    public float distanceMax = 308;
     public ParticleSystem rockExplodeParticle;
 
-    RaycastHit hit;
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && hand == Hand.Right)
@@ -26,12 +26,22 @@ public class SwordSlice : MonoBehaviour
     }
     public void Slice()
     {
-        if(Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)), out hit, distanceHit))
+        if(hand == Hand.Right)
         {
-            if(hit.transform.GetComponent<SphereCollider>() != null)
+            if(BoulderSpawner.Instance.spawnedBouldersLeft[0].m_Position >= distanceHit &&
+            BoulderSpawner.Instance.spawnedBouldersLeft[0].m_Position <= distanceMax)
             {
-                Instantiate(rockExplodeParticle, hit.transform.position, Quaternion.identity);
-                Destroy(hit.transform.gameObject);
+                Instantiate(rockExplodeParticle, BoulderSpawner.Instance.spawnedBouldersLeft[0].transform.position, Quaternion.identity);
+                Destroy(BoulderSpawner.Instance.spawnedBouldersLeft[0].transform.gameObject);
+            }
+        }
+        if(hand == Hand.Left)
+        {
+            if(BoulderSpawner.Instance.spawnedBouldersRight[0].m_Position >= distanceHit &&
+            BoulderSpawner.Instance.spawnedBouldersRight[0].m_Position <= distanceMax)
+            {
+                Instantiate(rockExplodeParticle, BoulderSpawner.Instance.spawnedBouldersRight[0].transform.position, Quaternion.identity);
+                Destroy(BoulderSpawner.Instance.spawnedBouldersRight[0].transform.gameObject);
             }
         }
     }

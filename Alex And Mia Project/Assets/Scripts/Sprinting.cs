@@ -6,6 +6,7 @@ using UnityEngine;
 public class Sprinting : MonoBehaviour
 {
     public float distance;
+    public float points;
     public float time;
 
     [Header("Debug")]
@@ -15,9 +16,11 @@ public class Sprinting : MonoBehaviour
     [Space(20)]
     public TMP_Text timeText;
     public TMP_Text distanceText;
+    public TMP_Text pointsText;
 
     float slowTime = 2;
     float timeTillSlow;
+    int pointsAdd;
 
     Transform rAnkle;
     Transform lAnkle;
@@ -28,12 +31,14 @@ public class Sprinting : MonoBehaviour
     {
         gameStart = true;
         timeTillSlow = slowTime;
+        points = 0;
     }
 
     void Update()
     {
         timeText.text = "Time Left: " + time.ToString("F2");
         distanceText.text = "Distance: " + distance.ToString("F2");
+        pointsText.text = "Points: " + points;
 
         if (gameStart)
         {
@@ -65,6 +70,7 @@ public class Sprinting : MonoBehaviour
                 {
                     run = true;
                     timeTillSlow = slowTime;
+                    pointsAdd += 1;
                     switchPose = true;
                 }
                 if ((lAnkle.position.y >= rAnkle.position.y) && switchPose)
@@ -79,9 +85,10 @@ public class Sprinting : MonoBehaviour
         {
             Time.timeScale = 1;
             distance += Time.deltaTime;
+            points += (int)(Time.deltaTime + pointsAdd);
         }
 
-        if (timeTillSlow <= 0 || !bonesActive)
+        if (timeTillSlow <= 0)
         {
             run = false;
             Time.timeScale = 0.05f;
