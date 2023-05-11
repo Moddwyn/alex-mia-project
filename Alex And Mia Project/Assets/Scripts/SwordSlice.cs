@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SwordSlice : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class SwordSlice : MonoBehaviour
     public float distanceHit = 290;
     public float distanceMax = 308;
     public ParticleSystem rockExplodeParticle;
+    public UnityEvent OnSwing;
+    public UnityEvent OnDestroy;
 
     void Update()
     {
@@ -16,12 +19,13 @@ public class SwordSlice : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("Slice");
             GetComponentInChildren<ParticleSystem>().Play();
+            OnSwing?.Invoke();
         }
         if (Input.GetMouseButtonDown(1) && hand == Hand.Left)
         {
             GetComponent<Animator>().SetTrigger("Slice");
             GetComponentInChildren<ParticleSystem>().Play();
-
+            OnSwing?.Invoke();
         }
     }
     public void Slice()
@@ -33,6 +37,7 @@ public class SwordSlice : MonoBehaviour
             {
                 Instantiate(rockExplodeParticle, BoulderSpawner.Instance.spawnedBouldersLeft[0].transform.position, Quaternion.identity);
                 Destroy(BoulderSpawner.Instance.spawnedBouldersLeft[0].transform.gameObject);
+                OnDestroy?.Invoke();
             }
         }
         if(hand == Hand.Left)
@@ -42,6 +47,7 @@ public class SwordSlice : MonoBehaviour
             {
                 Instantiate(rockExplodeParticle, BoulderSpawner.Instance.spawnedBouldersRight[0].transform.position, Quaternion.identity);
                 Destroy(BoulderSpawner.Instance.spawnedBouldersRight[0].transform.gameObject);
+                OnDestroy?.Invoke();
             }
         }
     }

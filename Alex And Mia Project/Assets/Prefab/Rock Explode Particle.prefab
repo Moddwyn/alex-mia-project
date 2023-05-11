@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6209521819666306773}
   - component: {fileID: 6209521819666306778}
   - component: {fileID: 6209521819666306779}
-  - component: {fileID: -8455143500444826699}
+  - component: {fileID: 1999689155345848330}
   m_Layer: 0
   m_Name: Rock Explode Particle
   m_TagString: Untagged
@@ -4813,7 +4813,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &-8455143500444826699
+--- !u!114 &1999689155345848330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4822,7 +4822,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6209521819666306776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae06ecbe04964224db516de64b517995, type: 3}
+  m_Script: {fileID: 11500000, guid: 26061dac53f6f1442b603e0e979f8ebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTillDestroy: 4

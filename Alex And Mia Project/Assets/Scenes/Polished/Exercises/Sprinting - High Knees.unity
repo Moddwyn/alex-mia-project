@@ -1348,6 +1348,7 @@ MonoBehaviour:
   m_PositionUnits: 1
   m_Speed: 5
   m_Position: 3
+  independentRot: 0
 --- !u!1 &631293165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,7 +1474,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3e0cfb3498b243b42b066fa9b40d3739, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e0231595387cc1644bae619da944a047, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.062
   m_Pitch: 1
@@ -4306,6 +4307,7 @@ MonoBehaviour:
   m_PositionUnits: 1
   m_Speed: 5
   m_Position: 0
+  independentRot: 0
 --- !u!1 &1875844544
 GameObject:
   m_ObjectHideFlags: 0
