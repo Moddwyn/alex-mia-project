@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -37,6 +38,7 @@ public class SwordSlice : MonoBehaviour
             {
                 Instantiate(rockExplodeParticle, BoulderSpawner.Instance.spawnedBouldersLeft[0].transform.position, Quaternion.identity);
                 Destroy(BoulderSpawner.Instance.spawnedBouldersLeft[0].transform.gameObject);
+                BeatSaberManager.Instance.score++;
                 OnDestroy?.Invoke();
             }
         }
@@ -47,6 +49,7 @@ public class SwordSlice : MonoBehaviour
             {
                 Instantiate(rockExplodeParticle, BoulderSpawner.Instance.spawnedBouldersRight[0].transform.position, Quaternion.identity);
                 Destroy(BoulderSpawner.Instance.spawnedBouldersRight[0].transform.gameObject);
+                BeatSaberManager.Instance.score++;
                 OnDestroy?.Invoke();
             }
         }

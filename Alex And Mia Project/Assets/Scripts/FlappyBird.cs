@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlappyBird : MonoBehaviour
 {
+    public int currentPipe;
+    [Space(20)]
     public Rigidbody bird;
     public Transform cam;
     public AudioSource sfxSource;
     public AudioClip flapSound;
     public AudioClip hitSound;
     public AudioClip deadSound;
+    public TMP_Text scoreText;
 
     [Space(20)]
     public float transitionTime;
@@ -20,8 +25,9 @@ public class FlappyBird : MonoBehaviour
     public GameObject pipePrefab;       // Prefab of the pipe to spawn
     public Vector2 pipeYSpacingRange;
     public float ySpaceGap;
-    public float pipeSideSpacing; 
+    public float pipeSideSpacing;
     public int amount;
+    public List<GameObject> pipes = new List<GameObject>();
 
     [Space(20)]
     Transform rWrist;
@@ -39,6 +45,7 @@ public class FlappyBird : MonoBehaviour
 
     void Start()
     {
+        currentPipe = -1;
         SpawnPipes();
     }
 
@@ -48,18 +55,19 @@ public class FlappyBird : MonoBehaviour
     }
 
     void Update()
-    {   
-        if(!dead)
-        cam.position = Vector3.MoveTowards(cam.position, 
-        new Vector3(cam.position.x, bird.position.y, bird.position.z), 
-        Time.deltaTime * transitionTime);
+    {
+        scoreText.text = "Score: " + (currentPipe + 1);
+        if (!dead)
+            cam.position = Vector3.MoveTowards(cam.position,
+            new Vector3(cam.position.x, bird.position.y, bird.position.z),
+            Time.deltaTime * transitionTime);
 
-        if(gameStart)
+        if (gameStart)
             BirdMovement();
 
         bird.isKinematic = !gameStart;
 
-        if(bird.position.y >= 15 || bird.position.y <= -20)
+        if (bird.position.y >= 15 || bird.position.y <= -20)
         {
             dead = true;
         }
@@ -67,43 +75,53 @@ public class FlappyBird : MonoBehaviour
 
     void BirdMovement()
     {
-        if(!dead)
+        if (!dead)
             bird.velocity = new Vector3(bird.velocity.x, bird.velocity.y, (bird.transform.forward * forwardSpeed).z);
 
-        if(lWrist == null && PoseEstimator.Instance.ready)
+        if (lWrist == null && PoseEstimator.Instance.ready)
         {
-            if(GameObject.Find("leftWrist"))
+            if (GameObject.Find("leftWrist"))
                 lWrist = GameObject.Find("leftWrist").transform;
         }
-        if(rWrist == null && PoseEstimator.Instance.ready)
+        if (rWrist == null && PoseEstimator.Instance.ready)
         {
-            if(GameObject.Find("rightWrist"))
+            if (GameObject.Find("rightWrist"))
                 rWrist = GameObject.Find("rightWrist").transform;
         }
-        if(nose == null && PoseEstimator.Instance.ready)
+        if (nose == null && PoseEstimator.Instance.ready)
         {
-            if(GameObject.Find("nose"))
+            if (GameObject.Find("nose"))
                 nose = GameObject.Find("nose").transform;
         }
 
-        if(lWrist != null && rWrist != null && nose != null && PoseEstimator.Instance.ready)
+        if (lWrist != null && rWrist != null && nose != null && PoseEstimator.Instance.ready)
         {
-            if((lWrist.position.y > nose.position.y) && (rWrist.position.y > nose.position.y) && !switchPose)
+            if ((lWrist.position.y > nose.position.y) && (rWrist.position.y > nose.position.y) && !switchPose)
             {
                 jump = true;
                 switchPose = true;
             }
-            if((lWrist.position.y < nose.position.y) && (rWrist.position.y < nose.position.y) && switchPose)
+            if ((lWrist.position.y < nose.position.y) && (rWrist.position.y < nose.position.y) && switchPose)
             {
                 switchPose = false;
             }
         }
+        if(Input.GetMouseButtonDown(0)) jump = true;
 
         if (jump && !dead)
         {
             bird.velocity = Vector3.up * jumpForce;
             sfxSource.PlayOneShot(flapSound);
             jump = false;
+        }
+
+        for (int i = 0; i < pipes.Count; i++)
+        {
+            if (bird.transform.position.z >= pipes[i].transform.position.z)
+            {
+                if(i >= currentPipe)
+                    currentPipe = i;
+            }
         }
     }
 
@@ -115,7 +133,8 @@ public class FlappyBird : MonoBehaviour
             Vector3 bottomPipePosition = new Vector3(0, -35 + Random.Range(pipeYSpacingRange.x, pipeYSpacingRange.y), lastZ);
             Vector3 topPipePosition = new Vector3(0, bottomPipePosition.y + ySpaceGap, lastZ);
             Instantiate(pipePrefab, topPipePosition, Quaternion.identity);
-            Instantiate(pipePrefab, bottomPipePosition, Quaternion.identity);
+            GameObject newPipe = Instantiate(pipePrefab, bottomPipePosition, Quaternion.identity);
+            pipes.Add(newPipe);
 
             lastZ += pipeSideSpacing;
         }
@@ -123,14 +142,17 @@ public class FlappyBird : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.transform.tag == "Pipe")
+        if (other.transform.tag == "Pipe")
         {
             dead = true;
             sfxSource.PlayOneShot(hitSound);
             sfxSource.PlayOneShot(deadSound);
             bird.GetComponent<Collider>().enabled = false;
             bird.GetComponent<Animator>().SetBool("Death", true);
+            Invoke("RestartGame", 3);
         }
     }
+
+    void RestartGame() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); }
 
 }

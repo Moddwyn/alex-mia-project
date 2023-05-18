@@ -33,7 +33,7 @@ public class BoulderSpawner : MonoBehaviour
         Transform spawned = Instantiate(boulders[Random.Range(0, boulders.Length)], pos, Quaternion.identity);
         TrackFollow follow = spawned.AddComponent<TrackFollow>();
         follow.m_Path = path;
-        follow.m_Speed = 20;
+        follow.m_Speed = speed;
         follow.m_Position = 0;
         follow.independentRot = true;
 
