@@ -448,7 +448,16 @@ public class PoseEstimator : MonoBehaviour
     private void OnDisable()
     {
         // Release the resources allocated for the inference engine
-        engine.Dispose();
+        try
+        {
+            engine.Dispose();
+        }
+        catch (System.Exception)
+        {
+            
+            throw;
+        }
+        
     }
 
     public void OnUserInput()
