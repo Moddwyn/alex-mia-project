@@ -447,16 +447,7 @@ public class PoseEstimator : MonoBehaviour
     // OnDisable is called when the MonoBehavior becomes disabled or inactive
     private void OnDisable()
     {
-        // Release the resources allocated for the inference engine
-        try
-        {
             engine.Dispose();
-        }
-        catch (System.Exception)
-        {
-            
-            throw;
-        }
         
     }
 
