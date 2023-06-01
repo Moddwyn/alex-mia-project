@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ec5444f91b84469523b5f882a94f3, type: 3}
   m_Name: MobileNet
   m_EditorClassIdentifier: 
-  modelAsset: {fileID: 5022602860645237092, guid: a36a65fea3d8bd64fba1711d6ac95b2b, type: 3}
+  modelAsset: {fileID: 5022602860645237092, guid: e4f7338f00b51944587fbe2431cf2d88, type: 3}
   preprocessingMaterial: {fileID: 2100000, guid: 2c1b743514271584bb40d472ab275157, type: 2}
   heatmapLayerIndex: 0
   offsetsLayerIndex: 1
