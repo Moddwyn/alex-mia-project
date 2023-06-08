@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pipe
+  - Boulder
+  - Pipe Point
+  - Pipe Chunk Border
   layers:
   - Default
   - TransparentFX
