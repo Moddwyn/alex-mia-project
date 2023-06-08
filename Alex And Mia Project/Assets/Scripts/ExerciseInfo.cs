@@ -5,6 +5,7 @@ using UnityEngine.Video;
 public class ExerciseInfo : ScriptableObject
 {
     public string exerciseName;
+    public string gameName;
     public string gameDisc;
     public VideoClip gameVid;
 }
