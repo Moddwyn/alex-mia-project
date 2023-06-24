@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc4c117a7717ce44e851f49d65393983, type: 3}
+  m_Name: Windmills
+  m_EditorClassIdentifier: 
+  exerciseName: Windmills
+  gameName: Boulder Breakdown
+  gameDisc: Do windmills in the right direction to slash the boulder in that direction
+    once it rolls close enough to you.  Be sure to time it right.
+  gameVid: {fileID: 0}
