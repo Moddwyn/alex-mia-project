@@ -1,0 +1,172 @@
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class FlappyBird : MonoBehaviour
+{
+    public int score;
+    public int pipeChunkPerSpawn;
+    public int spacing = 10;
+    public Vector2 yChangeRange = new Vector2(-10, 10);
+    public List<Transform> spawnedChunks = new List<Transform>();
+    public int maxCount = 20;
+    [Space(20)]
+    public Rigidbody bird;
+    public Transform cam;
+    public AudioSource sfxSource;
+    public AudioClip flapSound;
+    public AudioClip hitSound;
+    public AudioClip deadSound;
+    public TMP_Text scoreText;
+
+    [Space(20)]
+    public float transitionTime;
+    public float jumpForce;
+    public float forwardSpeed;
+
+    [Space(20)]
+    public GameObject pipeChunk;
+
+    [Space(20)]
+    Transform rWrist;
+    Transform lWrist;
+    Transform rLeg;
+    Transform lLeg;
+    Transform nose;
+
+    bool switchPose;
+    bool jump;
+    bool dead;
+
+    [Space(20)]
+    public bool gameStart;
+
+    public static FlappyBird Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
+    void Start()
+    {
+        SpawnPipes();
+    }
+
+    public void StartGame()
+    {
+        gameStart = true;
+    }
+
+    void Update()
+    {
+        CheckAndRemoveEmptyItems();
+
+        scoreText.text = "Score: " + score;
+        if (!dead)
+            cam.position = Vector3.MoveTowards(cam.position,
+            new Vector3(cam.position.x, bird.position.y, bird.position.z),
+            Time.deltaTime * transitionTime);
+
+        if (gameStart)
+        {
+            BirdMovement();
+            PostEstimateUpdate();
+        }
+
+        bird.isKinematic = !gameStart;
+    }
+
+    void BirdMovement()
+    {
+        if (Input.GetMouseButtonDown(0)) jump = true;
+
+        if (jump && !dead)
+        {
+            bird.velocity = Vector3.up * jumpForce;
+            sfxSource.PlayOneShot(flapSound);
+            jump = false;
+        }
+    }
+
+    void PostEstimateUpdate()
+    {
+        if (PoseEstimator.Instance != null)
+        {
+            if (lWrist == null && PoseEstimator.Instance.ready)
+            {
+                if (GameObject.Find("leftWrist"))
+                    lWrist = GameObject.Find("leftWrist").transform;
+            }
+            if (rWrist == null && PoseEstimator.Instance.ready)
+            {
+                if (GameObject.Find("rightWrist"))
+                    rWrist = GameObject.Find("rightWrist").transform;
+            }
+            if (nose == null && PoseEstimator.Instance.ready)
+            {
+                if (GameObject.Find("nose"))
+                    nose = GameObject.Find("nose").transform;
+            }
+
+            if (lWrist != null && rWrist != null && nose != null && PoseEstimator.Instance.ready)
+            {
+                if ((lWrist.position.y > nose.position.y) && (rWrist.position.y > nose.position.y) && !switchPose)
+                {
+                    jump = true;
+                    switchPose = true;
+                }
+                if ((lWrist.position.y < nose.position.y) && (rWrist.position.y < nose.position.y) && switchPose)
+                {
+                    switchPose = false;
+                }
+            }
+        }
+    }
+
+    public void SpawnPipes()
+    {
+        if(spawnedChunks.Count >= maxCount) return;
+        for (int i = 1; i <= pipeChunkPerSpawn; i++)
+        {
+            Vector3 newPos = new Vector3(0, 0, spawnedChunks[spawnedChunks.Count - 1].position.z + spacing);
+            Transform newChunk = Instantiate(pipeChunk, newPos, Quaternion.identity).transform;
+            int changeInY = Random.Range((int)yChangeRange.x, (int)yChangeRange.y + 1);
+            newChunk.GetChild(2).position += Vector3.up * changeInY;
+            spawnedChunks.Add(newChunk);
+        }
+    }
+
+    void CheckAndRemoveEmptyItems()
+    {
+        // Iterate through the list in reverse order
+        for (int i = spawnedChunks.Count - 1; i >= 0; i--)
+        {
+            // Check if the item is null or empty
+            if (spawnedChunks[i] == null)
+            {
+                // Remove the empty item from the list
+                spawnedChunks.RemoveAt(i);
+            }
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.tag == "Pipe")
+        {
+            dead = true;
+            sfxSource.PlayOneShot(hitSound);
+            sfxSource.PlayOneShot(deadSound);
+            bird.GetComponent<Collider>().enabled = false;
+            bird.GetComponent<Animator>().SetBool("Death", true);
+            Invoke("RestartGame", 3);
+        } else if(other.transform.tag == "Pipe Point")
+        {
+            score++;
+        }
+    }
+
+    void RestartGame() { SceneLoader.RestartScene(); }
+
+}
