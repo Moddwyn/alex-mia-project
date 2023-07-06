@@ -6,25 +6,24 @@ public class ChunkMover : MonoBehaviour
 {
     public int moveSpeed;
 
-    bool touched;
+    CanyonChase canyonChase;
+
+    void Start()
+    {
+        canyonChase = CanyonChase.Instance;
+    }
 
     void Update()
     {
-        if(touched == false)
+        transform.position += Vector3.back * moveSpeed * Time.deltaTime;
+
+        if(transform.position.z <= -80)
         {
-            transform.position += Vector3.back * moveSpeed * Time.deltaTime;
-        } else
-        {
-            transform.position = Vector3.Lerp(transform.position, GameObject.Find("Black Hole").transform.position, Time.deltaTime);
+            canyonChase.chunks.Add(Instantiate(canyonChase.chunk, 
+                new Vector3(0,0,canyonChase.chunks[^1].transform.position.z + 80),
+                Quaternion.identity));
+            Destroy(gameObject);
         }
-        
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Pipe Chunk Border")
-        {
-            touched = true;
-        }
-    }
 }
