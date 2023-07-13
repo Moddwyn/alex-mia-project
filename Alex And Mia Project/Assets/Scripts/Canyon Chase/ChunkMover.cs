@@ -15,7 +15,8 @@ public class ChunkMover : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.back * moveSpeed * Time.deltaTime;
+        if(!canyonChase.runner.IsLoose())
+            transform.position += Vector3.back * moveSpeed * Time.deltaTime;
 
         if(transform.position.z <= -80)
         {

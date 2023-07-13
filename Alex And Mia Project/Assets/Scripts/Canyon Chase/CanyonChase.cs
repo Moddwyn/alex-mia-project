@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CanyonChase : MonoBehaviour
@@ -7,6 +8,8 @@ public class CanyonChase : MonoBehaviour
     public GameObject chunk;
     public List<GameObject> chunks;
     public List<GameObject> obstacles;
+    public TMP_Text timeText;
+    public CanyonRunner runner;
 
     public static CanyonChase Instance;
 
@@ -21,7 +24,6 @@ public class CanyonChase : MonoBehaviour
         {
             chunks.Add(SpawnChunk(new Vector3(0,0,x*80)));
         }
-        
     }
 
     void Update()

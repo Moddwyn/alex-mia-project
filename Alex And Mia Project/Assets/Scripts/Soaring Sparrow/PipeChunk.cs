@@ -8,7 +8,14 @@ public class PipeChunk : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.back * speed * Time.deltaTime);
+        if(FlappyBird.Instance.gameStart)
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
+
+        if(transform.position.z <= -20)
+        {
+            FlappyBird.Instance.SpawnPipes();
+            Destroy(gameObject);
+        }
     }
     
     void OnTriggerEnter(Collider other)

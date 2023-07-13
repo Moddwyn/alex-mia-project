@@ -5,11 +5,10 @@ using UnityEngine;
 public class FlappyBird : MonoBehaviour
 {
     public int score;
-    public int pipeChunkPerSpawn;
     public int spacing = 10;
     public Vector2 yChangeRange = new Vector2(-10, 10);
     public List<Transform> spawnedChunks = new List<Transform>();
-    public int maxCount = 20;
+    public int spawnCount = 10;
     [Space(20)]
     public Rigidbody bird;
     public Transform cam;
@@ -50,7 +49,10 @@ public class FlappyBird : MonoBehaviour
 
     void Start()
     {
-        SpawnPipes();
+        for (int i = 0; i < spawnCount; i++)
+        {
+            SpawnPipes();
+        }
     }
 
     public void StartGame()
@@ -60,7 +62,7 @@ public class FlappyBird : MonoBehaviour
 
     void Update()
     {
-        CheckAndRemoveEmptyItems();
+        spawnedChunks.RemoveAll(item => item == null);
 
         scoreText.text = "Score: " + score;
         if (!dead)
@@ -126,29 +128,11 @@ public class FlappyBird : MonoBehaviour
 
     public void SpawnPipes()
     {
-        if(spawnedChunks.Count >= maxCount) return;
-        for (int i = 1; i <= pipeChunkPerSpawn; i++)
-        {
-            Vector3 newPos = new Vector3(0, 0, spawnedChunks[spawnedChunks.Count - 1].position.z + spacing);
-            Transform newChunk = Instantiate(pipeChunk, newPos, Quaternion.identity).transform;
-            int changeInY = Random.Range((int)yChangeRange.x, (int)yChangeRange.y + 1);
-            newChunk.GetChild(2).position += Vector3.up * changeInY;
-            spawnedChunks.Add(newChunk);
-        }
-    }
-
-    void CheckAndRemoveEmptyItems()
-    {
-        // Iterate through the list in reverse order
-        for (int i = spawnedChunks.Count - 1; i >= 0; i--)
-        {
-            // Check if the item is null or empty
-            if (spawnedChunks[i] == null)
-            {
-                // Remove the empty item from the list
-                spawnedChunks.RemoveAt(i);
-            }
-        }
+        Vector3 newPos = new Vector3(0, 0, spawnedChunks[spawnedChunks.Count - 1].position.z + spacing);
+        Transform newChunk = Instantiate(pipeChunk, newPos, Quaternion.identity).transform;
+        int changeInY = Random.Range((int)yChangeRange.x, (int)yChangeRange.y + 1);
+        newChunk.GetChild(2).position += Vector3.up * changeInY;
+        spawnedChunks.Add(newChunk);
     }
 
     void OnCollisionEnter(Collision other)

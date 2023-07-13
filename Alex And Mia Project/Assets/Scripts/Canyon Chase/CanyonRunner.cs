@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,23 +12,42 @@ public class CanyonRunner : MonoBehaviour
 
     bool left;
     bool started;
+    bool loose;
+    float time;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !loose)
         {
-            if(!started)
+            if (!started)
+            {
                 started = true;
+                time = 0;
+            }
             left = !left;
-        } 
-        runner.position = Vector3.Lerp(runner.position, new Vector3(started?(left?-5:5):0,runner.position.y, runner.position.z), Time.deltaTime*moveSpeed);
+        }
+
+        TimeSpan t = TimeSpan.FromSeconds(time);
+        if(t.Seconds < 10) {
+            CanyonChase.Instance.timeText.text = t.Minutes+":0"+t.Seconds;
+        }
+        else {
+            CanyonChase.Instance.timeText.text = t.Minutes+":"+t.Seconds;
+        }
+
+        if(!loose)
+            time += Time.deltaTime;
+        runner.position = Vector3.Lerp(runner.position, new Vector3(started ? (left ? -5 : 5) : 0, runner.position.y, runner.position.z), Time.deltaTime * moveSpeed);
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.transform.tag == "Obstacle")
+        if (other.transform.tag == "Obstacle" && !loose)
         {
+            loose = true;
             OnLoose?.Invoke();
         }
     }
+
+    public bool IsLoose() => loose;
 }
