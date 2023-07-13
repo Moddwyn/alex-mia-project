@@ -8,6 +8,7 @@ TagManager:
   - Boulder
   - Pipe Point
   - Pipe Chunk Border
+  - Obstacle
   layers:
   - Default
   - TransparentFX

@@ -19,9 +19,7 @@ public class ChunkMover : MonoBehaviour
 
         if(transform.position.z <= -80)
         {
-            canyonChase.chunks.Add(Instantiate(canyonChase.chunk, 
-                new Vector3(0,0,canyonChase.chunks[^1].transform.position.z + 80),
-                Quaternion.identity));
+            canyonChase.chunks.Add(canyonChase.SpawnChunk(new Vector3(0,0,canyonChase.chunks[^1].transform.position.z + 80)));
             Destroy(gameObject);
         }
     }
