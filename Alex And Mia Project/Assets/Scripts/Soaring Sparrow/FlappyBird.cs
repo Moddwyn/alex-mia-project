@@ -8,7 +8,7 @@ public class FlappyBird : MonoBehaviour
     public int spacing = 10;
     public Vector2 yChangeRange = new Vector2(-10, 10);
     public List<Transform> spawnedChunks = new List<Transform>();
-    public int spawnCount = 10;
+    public int startChunkCount = 10;
     [Space(20)]
     public Rigidbody bird;
     public Transform cam;
@@ -49,7 +49,7 @@ public class FlappyBird : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < spawnCount; i++)
+        for (int i = 0; i < startChunkCount; i++)
         {
             SpawnPipes();
         }
@@ -58,6 +58,7 @@ public class FlappyBird : MonoBehaviour
     public void StartGame()
     {
         gameStart = true;
+        score = 0;
     }
 
     void Update()
@@ -145,7 +146,12 @@ public class FlappyBird : MonoBehaviour
             bird.GetComponent<Collider>().enabled = false;
             bird.GetComponent<Animator>().SetBool("Death", true);
             Invoke("RestartGame", 3);
-        } else if(other.transform.tag == "Pipe Point")
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == "Pipe Point")
         {
             score++;
         }
