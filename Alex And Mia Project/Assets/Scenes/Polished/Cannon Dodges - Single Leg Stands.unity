@@ -3021,6 +3021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1980441211}
+  - component: {fileID: 1980441212}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3043,6 +3044,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980441212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980441210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687e71be4bb46054da6f1e8680aa8af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracks:
+  - {fileID: 253666132}
+  - {fileID: 1080584298}
+  - {fileID: 211359095}
+  - {fileID: 775565891}
+  - {fileID: 648029528}
+  - {fileID: 1433610702}
+  - {fileID: 2073764689}
+  - {fileID: 808623321}
+  - {fileID: 893115498}
+  - {fileID: 1939347045}
+  - {fileID: 352500346}
+  - {fileID: 1885252189}
+  - {fileID: 942659936}
+  - {fileID: 531577472}
+  - {fileID: 1791098650}
+  ball: {fileID: 5111979005708829918, guid: 451487d113de2f44ebdfe1054c4644e0, type: 3}
 --- !u!1001 &2010633162
 PrefabInstance:
   m_ObjectHideFlags: 0
