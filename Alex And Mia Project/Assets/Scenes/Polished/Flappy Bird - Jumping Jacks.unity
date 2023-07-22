@@ -1214,7 +1214,7 @@ MonoBehaviour:
   yChangeRange: {x: -5, y: 5}
   spawnedChunks:
   - {fileID: 1395533262}
-  spawnCount: 10
+  startChunkCount: 10
   bird: {fileID: 538294207}
   cam: {fileID: 1863711717}
   sfxSource: {fileID: 1868588846}
@@ -4884,7 +4884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1815015382996524256, guid: 0d6d5fecb9ad3764592199f2c271355d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.76
       objectReference: {fileID: 0}
     - target: {fileID: 1815015382996524256, guid: 0d6d5fecb9ad3764592199f2c271355d, type: 3}
       propertyPath: m_LocalRotation.w

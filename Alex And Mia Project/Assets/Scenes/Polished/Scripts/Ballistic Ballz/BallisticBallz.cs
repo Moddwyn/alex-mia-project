@@ -10,13 +10,18 @@ public class BallisticBallz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CinemachineDollyCart b = Instantiate(ball);
-        b.m_Path = tracks[Random.Range(0, tracks.Length)];
+        InvokeRepeating("Spawn", 0, 2);
     }
 
     // Update is called once per frame
-    void Update()
+    void Spawn()
     {
-        
+
+        for (int i = 0; i < Random.Range(1, 4); i++)
+        {
+            CinemachineDollyCart b = Instantiate(ball);
+            b.m_Path = tracks[Random.Range(0, tracks.Length)];
+        }
+
     }
 }

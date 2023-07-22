@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 7323298994763527006}
   - component: {fileID: 5111979005708829918}
   - component: {fileID: 722344264551446965}
+  - component: {fileID: 7092244326019361098}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Cannon Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2283386131711885632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 152.2074, y: 6.758993, z: -62.96756}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7aefec5a762a23048a13129930d1ded6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,8 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Path: {fileID: 0}
   m_UpdateMethod: 0
-  m_PositionUnits: 1
-  m_Speed: 20
+  m_PositionUnits: 2
+  m_Speed: 0.2
   m_Position: 0
 --- !u!82 &722344264551446965
 AudioSource:
@@ -129,13 +130,13 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 6975a40d3f415fe4a97ac05af402e325, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.6
+  m_Pitch: 0.4
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 2
+  DopplerLevel: 1
   MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
@@ -187,7 +188,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.0055555557
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -212,3 +213,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7092244326019361098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2283386131711885632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45a89c6aaec86846868213399bce0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
