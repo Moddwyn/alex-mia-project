@@ -127,16 +127,16 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6975a40d3f415fe4a97ac05af402e325, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 0.4
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0.23
   MinDistance: 10
   MaxDistance: 500
   Pan2D: 0
@@ -225,3 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45a89c6aaec86846868213399bce0c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 722344264551446965}
+  shootSound: {fileID: 8300000, guid: 5dc16444604aacb45a7d9eaf16a39eac, type: 3}
+  fallingSound: {fileID: 8300000, guid: 6975a40d3f415fe4a97ac05af402e325, type: 3}
+  hitSound: {fileID: 8300000, guid: ab4a8afb84ce9014cb26b956e76d1c9e, type: 3}
