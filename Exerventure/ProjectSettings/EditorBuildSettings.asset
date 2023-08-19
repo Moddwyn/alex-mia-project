@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game Assets/Scenes/Main Menu.unity
+    guid: aa398f8d532b68f459beff47a96a37e9
+  - enabled: 1
+    path: Assets/Game Assets/Scenes/Soaring Sparrow.unity
+    guid: 4e19f2f2245442d4a90b65a7f4d5ca1e
+  - enabled: 1
+    path: Assets/Game Assets/Scenes/Contract Chase.unity
+    guid: b2ac20cb05cc7b044bafbc47544acf9b
+  - enabled: 1
+    path: Assets/Game Assets/Scenes/Boulder Blade.unity
+    guid: e31ef2902291a2d4fb6d592c0dc596ce
+  - enabled: 1
+    path: Assets/Game Assets/Scenes/Ballistic Ballz.unity
+    guid: e61c554811d2e6441baadc20ede31ccf
+  - enabled: 1
+    path: Assets/Game Assets/Scenes/Steel Duelist.unity
+    guid: 8a759149b26d322499184802fcf02d75
+  - enabled: 1
+    path: Assets/Game Assets/Scenes/Canyon Chase.unity
+    guid: ad2296259fef7bf4b80779a3b77d467a
+  - enabled: 1
+    path: Assets/Game Assets/Scenes/Blaze Buster.unity
+    guid: e653aecce408d5d49b85e12984be786f
+  m_configObjects: {}

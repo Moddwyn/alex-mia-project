@@ -1,0 +1,141 @@
+using System.Collections;
+using System.Collections.Generic;
+using NaughtyAttributes;
+using TMPro;
+using Unity.Mathematics;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class ContractChaseManager : MonoBehaviour
+{
+    public UnityEvent OnGameStart;
+    public UnityEvent OnCaught;
+    [ReadOnly] public bool gameStarted;
+    [ReadOnly] public bool gameEnded;
+    [ReadOnly] public string scoreSaveKey = "ContractHigh";
+
+    [Space(20)]
+    public TMP_Text timeText;
+    public TMP_Text timeCaughtText;
+    public TMP_Text timeHighText;
+    public TMP_Text timeTextFinal;
+    public float timeCaught;
+    [ReadOnly] public float time;
+    [ReadOnly] public float timeHigh;
+
+    [HorizontalLine]
+    [ReadOnly][SerializeField] float timeSinceLastSpacePress = 0f;
+    [ReadOnly][SerializeField] float currTimeScale;
+    [ReadOnly][SerializeField] float timeBeforeCaught;
+
+    void Start() 
+    {
+        timeHigh = PlayerPrefs.GetFloat(scoreSaveKey);
+        OnCaught?.AddListener(SaveGame);
+    }
+
+    public void StartGame()
+    {
+        timeBeforeCaught = timeCaught;
+
+        gameStarted = true;
+        OnGameStart?.Invoke();
+    }
+
+    void Update()
+    {
+        if (Input.anyKeyDown && !gameStarted) StartGame();
+
+        UpdateTimeControls();
+        UpdateTexts();
+    }
+
+    void UpdateTimeControls()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && gameStarted && !gameEnded)
+        {
+            timeSinceLastSpacePress = 0;
+            timeBeforeCaught = timeCaught;
+        }
+        timeSinceLastSpacePress += Time.deltaTime;
+
+        Time.timeScale = timeSinceLastSpacePress >= 2? 0.05f : 1;
+
+        time += gameStarted && !gameEnded && Time.timeScale == 1?
+                Time.deltaTime : 0;
+
+        timeBeforeCaught -= gameStarted && !gameEnded && Time.timeScale == 0.05f?
+                Time.unscaledDeltaTime : 0;
+        timeBeforeCaught = Mathf.Clamp(timeBeforeCaught, 0, Mathf.Infinity);
+        
+
+        currTimeScale = Time.timeScale;
+
+        if(gameStarted && !gameEnded && timeBeforeCaught <= 0)
+        {
+            gameEnded = true;
+            OnCaught?.Invoke();
+        }
+    }
+
+    void UpdateTexts()
+    {
+        System.TimeSpan t = System.TimeSpan.FromSeconds(time);
+        System.TimeSpan tH = System.TimeSpan.FromSeconds(timeHigh);
+        if (t.Seconds < 10)
+        {
+            timeText.text = "Time: " + t.Minutes + ":0" + t.Seconds;
+        }
+        else
+        {
+            timeText.text = "Time: " + t.Minutes + ":" + t.Seconds;
+        }
+
+        if (tH.Seconds < 10)
+        {
+            timeHighText.text = "Highest Time: " + tH.Minutes + ":0" + tH.Seconds;
+        }
+        else
+        {
+            timeHighText.text = "Highest Time: " + tH.Minutes + ":" + tH.Seconds;
+        }
+
+        timeCaughtText.text = Time.timeScale == 0.05f?
+                            "Time before caught: " + timeBeforeCaught.ToString("F2") : "";
+    }
+
+    public void SaveGame()
+    {
+        gameEnded = true;
+        GameSaver.SaveHighScoreFloat(scoreSaveKey, time);
+
+        timeHigh = PlayerPrefs.GetFloat(scoreSaveKey);
+
+        System.TimeSpan t = System.TimeSpan.FromSeconds(time);
+        System.TimeSpan tH = System.TimeSpan.FromSeconds(timeHigh);
+        string finalTime = "";
+        string finalTimeHigh = "";
+        if (t.Seconds < 10)
+        {
+            finalTime = t.Minutes + ":0" + t.Seconds;
+        }
+        else
+        {
+            finalTime = t.Minutes + ":" + t.Seconds;
+        }
+        if (tH.Seconds < 10)
+        {
+            finalTimeHigh = tH.Minutes + ":0" + tH.Seconds;
+        }
+        else
+        {
+            finalTimeHigh = tH.Minutes + ":" + tH.Seconds;
+        }
+        timeTextFinal.text = "Final Time: " + finalTime + "\nHighest Time: " + finalTimeHigh;
+    }
+    
+    void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+}
