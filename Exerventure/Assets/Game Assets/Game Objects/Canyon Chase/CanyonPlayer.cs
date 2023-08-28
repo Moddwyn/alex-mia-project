@@ -21,7 +21,7 @@ public class CanyonPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && manager.gameStarted)
+        if (Input.GetKeyDown(KeyCode.Space) && manager.gameStarted && !manager.gameEnded)
         {
             left = !left;
             manager.sfxSource.PlayOneShot(manager.playerMoveClip);

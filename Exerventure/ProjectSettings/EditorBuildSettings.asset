@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Game Assets/Scenes/Ballistic Ballz.unity
     guid: e61c554811d2e6441baadc20ede31ccf
   - enabled: 1
-    path: Assets/Game Assets/Scenes/Steel Duelist.unity
-    guid: 8a759149b26d322499184802fcf02d75
-  - enabled: 1
     path: Assets/Game Assets/Scenes/Canyon Chase.unity
     guid: ad2296259fef7bf4b80779a3b77d467a
   - enabled: 1

@@ -12,7 +12,6 @@ public class ContractChaseManager : MonoBehaviour
     public UnityEvent OnCaught;
     [ReadOnly] public bool gameStarted;
     [ReadOnly] public bool gameEnded;
-    [ReadOnly] public string scoreSaveKey = "ContractHigh";
 
     [Space(20)]
     public TMP_Text timeText;
@@ -28,9 +27,12 @@ public class ContractChaseManager : MonoBehaviour
     [ReadOnly][SerializeField] float currTimeScale;
     [ReadOnly][SerializeField] float timeBeforeCaught;
 
+    GameInfoHolder gameInfoHolder;
+
     void Start() 
     {
-        timeHigh = PlayerPrefs.GetFloat(scoreSaveKey);
+        gameInfoHolder = GameInfoHolder.Instance;
+        timeHigh = PlayerPrefs.GetFloat(gameInfoHolder.exerciseInfo.scoreSaveKey);
         OnCaught?.AddListener(SaveGame);
     }
 
@@ -107,9 +109,9 @@ public class ContractChaseManager : MonoBehaviour
     public void SaveGame()
     {
         gameEnded = true;
-        GameSaver.SaveHighScoreFloat(scoreSaveKey, time);
+        GameSaver.SaveHighScoreFloat(gameInfoHolder.exerciseInfo.scoreSaveKey, time);
 
-        timeHigh = PlayerPrefs.GetFloat(scoreSaveKey);
+        timeHigh = PlayerPrefs.GetFloat(gameInfoHolder.exerciseInfo.scoreSaveKey);
 
         System.TimeSpan t = System.TimeSpan.FromSeconds(time);
         System.TimeSpan tH = System.TimeSpan.FromSeconds(timeHigh);

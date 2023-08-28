@@ -61,7 +61,7 @@ public class SparrowController : MonoBehaviour
     {
         bird.isKinematic = !manager.gameStarted;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !manager.gameEnded && manager.gameStarted)
         {
             Flap();
         }

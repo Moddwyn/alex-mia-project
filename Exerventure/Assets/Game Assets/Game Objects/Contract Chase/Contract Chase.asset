@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d45c77f121419e49a6d4013539ee933, type: 3}
+  m_Name: Contract Chase
+  m_EditorClassIdentifier: 
+  title: Contract Chase
+  gameSummary: "As the preeminent bounty hunter of the town, \na nefarious crime
+    has been perpetrated, followed \nby an attempted escape. It falls upon you to
+    relentlessly \npursue the perpetrator, chasing through the rugged trail \nby
+    doing high knees, all in the steadfast pursuit of \nupholding justice."
+  gameInstructions: "Stand in one spot and lift your knees up towards your chest
+    \none at a time, as if you're marching really high. \nAfter 2 seconds of no activity,
+    you have 5 seconds of grace \nbefore the perpetrator get away and loose the game."
+  animationVideo: {fileID: 32900000, guid: fb0fc49b667440049b11ed394401a578, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: fb0fc49b667440049b11ed394401a578, type: 3}
+  recordScoreHeader: Highest Score
