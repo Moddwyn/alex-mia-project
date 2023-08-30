@@ -13,8 +13,17 @@ MonoBehaviour:
   m_Name: Ballistic Ballz Info
   m_EditorClassIdentifier: 
   title: Ballistic Ballz
-  gameSummary: 
-  gameInstructions: 
+  gameSummary: Pirates have come to raid your island, seeing valuable treasure that
+    they wish to take for themselves.  As they begin to fire upon you with their
+    ship's cannons, you must do single leg stands to move out of the way and try
+    to avoid the projectiles.
+  gameInstructions: Stand on your left leg to run left and stand your right leg to
+    run right.  Avoid the cannonballs to survive as long as possible, but if you
+    get struck five times, you will lose.
   animationVideo: {fileID: 0}
   gamePreviewVideo: {fileID: 0}
   recordScoreHeader: Highest Score
+  recordScoreUnits: pts
+  scoreSaveKey: BallisticHigh
+  scoreType: 0
+  sceneIndex: 4

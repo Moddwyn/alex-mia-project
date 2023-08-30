@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d45c77f121419e49a6d4013539ee933, type: 3}
+  m_Name: Soaring Sparrow Info
+  m_EditorClassIdentifier: 
+  title: Soaring Sparrow
+  gameSummary: Being motivated by a natural instinct to find a secure and secluded
+    location for its nest, a bird curiously ventured into the pipe maze. Intrigued
+    by the twists and turns, it hopped and flapped its wings with the same energy
+    as performing jumping jacks to navigate through the confined spaces in pursuit
+    of a safe spot shielded from the elements and potential threats.
+  gameInstructions: Stand with your arms at your sides and your feet together, before
+    jumping with your arms and legs spread out like a star to make the bird briefly
+    fly up.  Afterwards, jump back into the starting position and repeat the process. 
+    Don't let the bird fall into the pit below, or get too high or make contact with
+    any pipes, or else the bird won't reach its potential nest.
+  animationVideo: {fileID: 0}
+  gamePreviewVideo: {fileID: 0}
+  recordScoreHeader: Highest Score
+  recordScoreUnits: pts
+  scoreSaveKey: SparrowHigh
+  scoreType: 0
+  sceneIndex: 1

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d45c77f121419e49a6d4013539ee933, type: 3}
+  m_Name: Boulder Blade Info
+  m_EditorClassIdentifier: 
+  title: Boulder Blade
+  gameSummary: After a mission went awry in the far mountains, a knight is left to
+    fend for survival as an avalanche threatens what little there is to fight for. 
+    Armed with nothing but two swords and an unwavering resolve, the knight engages
+    in a daring windmill dance of steel against the unrelenting forces of nature,
+    a testament of valor etched in the clash between blade and stone.
+  gameInstructions: Execute a sweeping circular gesture with your left arm to set
+    your left sword in motion, mirrored by a similar motion with your right arm for
+    the right sword. Combine both arm movements simultaneously in a forward circular
+    motion to synchronize the swing of both swords. Caution is paramount, as enduring
+    five strikes culminates in perilous defeat.
+  animationVideo: {fileID: 0}
+  gamePreviewVideo: {fileID: 0}
+  recordScoreHeader: Highest Score
+  recordScoreUnits: pts
+  scoreSaveKey: BoulderHigh
+  scoreType: 0
+  sceneIndex: 3

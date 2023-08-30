@@ -23,6 +23,12 @@ public class ExerciseInfo : ScriptableObject
 
     [HorizontalLine]
     public string recordScoreHeader = "Highest Score";
+    public string recordScoreUnits = "pts";
     public string scoreSaveKey;
+    public ScoreType scoreType;
+
+    [HorizontalLine]
     public int sceneIndex;
+
+    public enum ScoreType{ Integer, Float };
 }

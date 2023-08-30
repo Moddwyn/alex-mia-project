@@ -8,7 +8,6 @@ using UnityEngine.Events;
 public class CanyonChaseManager : Singleton<CanyonChaseManager>
 {
     public CanyonPlayer player;
-    [ReadOnly] public string scoreSaveKey = "CanyonHigh";
     
     [HorizontalLine]
     public UnityEvent OnGameStart;
@@ -34,11 +33,14 @@ public class CanyonChaseManager : Singleton<CanyonChaseManager>
     public AudioSource sfxSource;
     public AudioClip playerMoveClip;
 
-    void Start()
+    GameInfoHolder gameInfoHolder;
+
+    void Start() 
     {
+        gameInfoHolder = GameInfoHolder.Instance;
         InitChunks();
 
-        timeHigh = PlayerPrefs.GetFloat(scoreSaveKey);
+        timeHigh = PlayerPrefs.GetFloat(gameInfoHolder.exerciseInfo.scoreSaveKey);
 
         player.OnDeath?.AddListener(SaveGame);
     }
@@ -62,23 +64,21 @@ public class CanyonChaseManager : Singleton<CanyonChaseManager>
         System.TimeSpan tH = System.TimeSpan.FromSeconds(timeHigh);
         if (t.Seconds < 10)
         {
-            timeText.text = "Time: " + t.Minutes + ":0" + t.Seconds;
+            timeText.text = "Time: " + t.Minutes + ":0" + t.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
         else
         {
-            timeText.text = "Time: " + t.Minutes + ":" + t.Seconds;
+            timeText.text = "Time: " + t.Minutes + ":" + t.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
 
         if (tH.Seconds < 10)
         {
-            timeHighText.text = "Highest Time: " + tH.Minutes + ":0" + tH.Seconds;
+            timeHighText.text = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + tH.Minutes + ":0" + tH.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
         else
         {
-            timeHighText.text = "Highest Time: " + tH.Minutes + ":" + tH.Seconds;
+            timeHighText.text = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + tH.Minutes + ":" + tH.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
-
-
 
         if (gameStarted && !gameEnded)
             time += Time.deltaTime;
@@ -114,31 +114,32 @@ public class CanyonChaseManager : Singleton<CanyonChaseManager>
     public void SaveGame()
     {
         gameEnded = true;
-        GameSaver.SaveHighScoreFloat(scoreSaveKey, time);
+        GameSaver.SaveHighScoreFloat(gameInfoHolder.exerciseInfo.scoreSaveKey, time);
 
-        timeHigh = PlayerPrefs.GetFloat(scoreSaveKey);
+        timeHigh = PlayerPrefs.GetFloat(gameInfoHolder.exerciseInfo.scoreSaveKey);
 
         System.TimeSpan t = System.TimeSpan.FromSeconds(time);
         System.TimeSpan tH = System.TimeSpan.FromSeconds(timeHigh);
-        string finalTime = "";
-        string finalTimeHigh = "";
+        string finalTime;
         if (t.Seconds < 10)
         {
-            finalTime = t.Minutes + ":0" + t.Seconds;
+            finalTime = t.Minutes + ":0" + t.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
         else
         {
-            finalTime = t.Minutes + ":" + t.Seconds;
+            finalTime = t.Minutes + ":" + t.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
+
+        string finalTimeHigh;
         if (tH.Seconds < 10)
         {
-            finalTimeHigh = tH.Minutes + ":0" + tH.Seconds;
+            finalTimeHigh = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + tH.Minutes + ":0" + tH.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
         else
         {
-            finalTimeHigh = tH.Minutes + ":" + tH.Seconds;
+            finalTimeHigh = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + tH.Minutes + ":" + tH.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
-        timeTextFinal.text = "Final Time: " + finalTime + "\nHighest Time: " + finalTimeHigh;
+        timeTextFinal.text = "Final Time: " + finalTime + "\n" + finalTimeHigh;
     }
     
     void OnApplicationQuit()

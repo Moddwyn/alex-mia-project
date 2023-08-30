@@ -12,7 +12,6 @@ public class BlazeBusterManager : MonoBehaviour
     public UnityEvent OnFireOut;
     [ReadOnly] public bool gameStarted;
     [ReadOnly] public bool gameEnded;
-    [ReadOnly] public string scoreSaveKey = "BlazeHigh";
 
     [HorizontalLine]
     public int fireLeft;
@@ -38,11 +37,15 @@ public class BlazeBusterManager : MonoBehaviour
     public AudioClip explodeClip;
     public AudioClip waterSpray;
 
+    GameInfoHolder gameInfoHolder;
+
     void Start()
     {
+        gameInfoHolder = GameInfoHolder.Instance;
+
         maxFireLeft = fireLeft;
         
-        timeLow = PlayerPrefs.GetFloat(scoreSaveKey);
+        timeLow = PlayerPrefs.GetFloat(gameInfoHolder.exerciseInfo.scoreSaveKey);
         OnFireOut?.AddListener(SaveGame);
     }
 
@@ -89,20 +92,20 @@ public class BlazeBusterManager : MonoBehaviour
         System.TimeSpan tH = System.TimeSpan.FromSeconds(timeLow);
         if (t.Seconds < 10)
         {
-            timeText.text = "Time: " + t.Minutes + ":0" + t.Seconds;
+            timeText.text = "Time: " + t.Minutes + ":0" + t.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
         else
         {
-            timeText.text = "Time: " + t.Minutes + ":" + t.Seconds;
+            timeText.text = "Time: " + t.Minutes + ":" + t.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
 
         if (tH.Seconds < 10)
         {
-            timeLowText.text = "Lowest Time: " + tH.Minutes + ":0" + tH.Seconds;
+            timeLowText.text = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + tH.Minutes + ":0" + tH.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
         else
         {
-            timeLowText.text = "Lowest Time: " + tH.Minutes + ":" + tH.Seconds;
+            timeLowText.text = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + tH.Minutes + ":" + tH.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
 
 
@@ -123,9 +126,9 @@ public class BlazeBusterManager : MonoBehaviour
     public void SaveGame()
     {
         gameEnded = true;
-        GameSaver.SaveLowScoreFloat(scoreSaveKey, time);
+        GameSaver.SaveLowScoreFloat(gameInfoHolder.exerciseInfo.scoreSaveKey, time);
 
-        timeLow = PlayerPrefs.GetFloat(scoreSaveKey);
+        timeLow = PlayerPrefs.GetFloat(gameInfoHolder.exerciseInfo.scoreSaveKey);
 
         System.TimeSpan t = System.TimeSpan.FromSeconds(time);
         System.TimeSpan tH = System.TimeSpan.FromSeconds(timeLow);
@@ -133,20 +136,21 @@ public class BlazeBusterManager : MonoBehaviour
         string finalTimeLow = "";
         if (t.Seconds < 10)
         {
-            finalTime = t.Minutes + ":0" + t.Seconds;
+            finalTime = t.Minutes + ":0" + t.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
         else
         {
-            finalTime = t.Minutes + ":" + t.Seconds;
+            finalTime = t.Minutes + ":" + t.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
+
         if (tH.Seconds < 10)
         {
-            finalTimeLow = tH.Minutes + ":0" + tH.Seconds;
+            finalTimeLow = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + tH.Minutes + ":0" + tH.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
         else
         {
-            finalTimeLow = tH.Minutes + ":" + tH.Seconds;
+            finalTimeLow = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + tH.Minutes + ":" + tH.Seconds + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         }
-        timeTextFinal.text = "Final Time: " + finalTime + "\nLowest Time: " + finalTimeLow;
+        timeTextFinal.text = "Final Time: " + finalTime + "\n" + finalTimeLow;
     }
 }

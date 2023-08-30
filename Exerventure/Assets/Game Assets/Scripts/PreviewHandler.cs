@@ -30,7 +30,7 @@ public class PreviewHandler : MonoBehaviour
             animationPlayer.clip = currentInfo.animationVideo;
             gamePreviewPlayer.clip = currentInfo.gamePreviewVideo;
 
-            recordScoreText.text = currentInfo.recordScoreHeader + ": " + 0;
+            recordScoreText.text = currentInfo.recordScoreHeader + ": " + gameInfoHolder.GetSavedScore() + " " + currentInfo.recordScoreUnits;
         }
     }
 }

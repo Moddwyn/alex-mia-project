@@ -458,17 +458,17 @@ MonoBehaviour:
         m_MethodName: SetGameInfo
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: 83acc94720d18204eb30293a006c1116, type: 2}
           m_ObjectArgumentAssemblyTypeName: ExerciseInfo, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1532478164}
-        m_TargetAssemblyTypeName: GameLevel, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 3
+      - m_Target: {fileID: 1532478165}
+        m_TargetAssemblyTypeName: PreviewHandler, Assembly-CSharp
+        m_MethodName: SetPreview
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -768,17 +768,17 @@ MonoBehaviour:
         m_MethodName: SetGameInfo
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: 80e07cdc6a9ceb44285bd2ba108f8064, type: 2}
           m_ObjectArgumentAssemblyTypeName: ExerciseInfo, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1532478164}
-        m_TargetAssemblyTypeName: GameLevel, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 3
+      - m_Target: {fileID: 1532478165}
+        m_TargetAssemblyTypeName: PreviewHandler, Assembly-CSharp
+        m_MethodName: SetPreview
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1079,17 +1079,17 @@ MonoBehaviour:
         m_MethodName: SetGameInfo
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: 941f1726e58632f48b5e408824d3d896, type: 2}
           m_ObjectArgumentAssemblyTypeName: ExerciseInfo, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1532478164}
-        m_TargetAssemblyTypeName: GameLevel, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 3
+      - m_Target: {fileID: 1532478165}
+        m_TargetAssemblyTypeName: PreviewHandler, Assembly-CSharp
+        m_MethodName: SetPreview
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2006,7 +2006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 195.08646, y: 19.501007}
+  m_AnchoredPosition: {x: 195.08643, y: 19.501007}
   m_SizeDelta: {x: 154.35, y: 154.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &302281741
@@ -2097,17 +2097,17 @@ MonoBehaviour:
         m_MethodName: SetGameInfo
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: e9c9de6b0c627544cbbbf374b5894b4f, type: 2}
           m_ObjectArgumentAssemblyTypeName: ExerciseInfo, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1532478164}
-        m_TargetAssemblyTypeName: GameLevel, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 3
+      - m_Target: {fileID: 1532478165}
+        m_TargetAssemblyTypeName: PreviewHandler, Assembly-CSharp
+        m_MethodName: SetPreview
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2823,7 +2823,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lunges
+  m_text: Squats
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d25534d74bfc9d44bb76f99dde1154ab, type: 2}
   m_sharedMaterial: {fileID: 8029534652553028452, guid: d25534d74bfc9d44bb76f99dde1154ab, type: 2}
@@ -3039,14 +3039,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1532478164}
-        m_TargetAssemblyTypeName: GameLevel, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 3
+      - m_Target: {fileID: 1532478165}
+        m_TargetAssemblyTypeName: PreviewHandler, Assembly-CSharp
+        m_MethodName: SetPreview
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4058,7 +4058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &743221369
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9349,7 +9349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &869544403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9486,7 +9486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.231, y: 0.159, z: -31.395}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 930.78644, y: 7.501007}
+  m_AnchoredPosition: {x: 930.7864, y: 7.501007}
   m_SizeDelta: {x: 25.059, y: 16.667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972786904
@@ -10737,10 +10737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: As the preeminent bounty hunter of the town, a nefarious crime has been
-    perpetrated, followed by an attempted escape. It falls upon you to relentlessly
-    pursue the perpetrator, chasing through the rugged trail by doing high knees,
-    all in the steadfast pursuit of upholding justice.
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d25534d74bfc9d44bb76f99dde1154ab, type: 2}
   m_sharedMaterial: {fileID: 8029534652553028452, guid: d25534d74bfc9d44bb76f99dde1154ab, type: 2}
@@ -11185,7 +11182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 995.9865, y: 3.7010193}
+  m_AnchoredPosition: {x: 995.9866, y: 3.7010193}
   m_SizeDelta: {x: 154.35, y: 154.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1473845112
@@ -11276,17 +11273,17 @@ MonoBehaviour:
         m_MethodName: SetGameInfo
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 11400000, guid: 3503a661a9d41dc40aec0b8d3bada81b, type: 2}
           m_ObjectArgumentAssemblyTypeName: ExerciseInfo, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1532478164}
-        m_TargetAssemblyTypeName: GameLevel, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 3
+      - m_Target: {fileID: 1532478165}
+        m_TargetAssemblyTypeName: PreviewHandler, Assembly-CSharp
+        m_MethodName: SetPreview
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

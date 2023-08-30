@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d45c77f121419e49a6d4013539ee933, type: 3}
+  m_Name: Blaze Buster Info
+  m_EditorClassIdentifier: 
+  title: Blaze Buster
+  gameSummary: Children had been playing in a house, when they accidentally turned
+    on the stove and unknowingly set their house on fire!  Being a renowned and fearless
+    firefighter, you were summoned to the scene and came prepared with a hose.  Using
+    squats to pump the hose, you must be swift to put out the fire.
+  gameInstructions: Stand up straight with your feet shoulder-width apart, then pretend
+    you're sitting down by bending your knees while keeping your back straight. Make
+    sure your knees point in the same direction as your toes and don't go lower than
+    is comfortable. Push through your heels to stand back up. Repeat this motion
+    to do a squat. Squatting down will push down on the water pipe to spray water
+    at the burning house. Taking out the fire will result in victory.
+  animationVideo: {fileID: 0}
+  gamePreviewVideo: {fileID: 0}
+  recordScoreHeader: Lowest Time
+  recordScoreUnits: s
+  scoreSaveKey: BlazeHigh
+  scoreType: 1
+  sceneIndex: 6

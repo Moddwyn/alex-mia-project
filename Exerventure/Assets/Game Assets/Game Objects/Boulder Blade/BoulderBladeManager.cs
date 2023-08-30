@@ -19,7 +19,6 @@ public class BoulderBladeManager : Singleton<BoulderBladeManager>
     [HorizontalLine]
     public int score;
     [ReadOnly] public int highScore;
-    [ReadOnly][SerializeField] string scoreSaveKey = "BoulderHigh";
     public TMP_Text scoreText;
     public TMP_Text highScoreText;
     public TMP_Text scoreTextFinal;
@@ -34,9 +33,12 @@ public class BoulderBladeManager : Singleton<BoulderBladeManager>
     public float speedChangeIntervals;
     public List<Vector2> speedRange;
 
+    GameInfoHolder gameInfoHolder;
+
     void Start()
     {
-        highScore = PlayerPrefs.GetInt(scoreSaveKey);
+        gameInfoHolder = GameInfoHolder.Instance;
+        highScore = PlayerPrefs.GetInt(gameInfoHolder.exerciseInfo.scoreSaveKey);
         player.OnDeath?.AddListener(SaveGame);
     }
 
@@ -55,8 +57,8 @@ public class BoulderBladeManager : Singleton<BoulderBladeManager>
     {
         if (Input.anyKeyDown && !gameStarted) StartGame();
 
-        scoreText.text = "Score: "  + score;
-        highScoreText.text = "High Score: " + highScore;
+        scoreText.text = "Score: "  + score + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
+        highScoreText.text = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + highScore + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
     }
 
     IEnumerator StartSpawning()
@@ -95,10 +97,11 @@ public class BoulderBladeManager : Singleton<BoulderBladeManager>
     void SaveGame()
     {
         canSpawn = false;
-        GameSaver.SaveHighScoreInt(scoreSaveKey, score);
+        GameSaver.SaveHighScoreInt(gameInfoHolder.exerciseInfo.scoreSaveKey, score);
 
-        highScore = PlayerPrefs.GetInt(scoreSaveKey);
-        scoreTextFinal.text = "Final Score: "  + score + "\nHigh Score: " + highScore;
+        highScore = PlayerPrefs.GetInt(gameInfoHolder.exerciseInfo.scoreSaveKey);
+        scoreTextFinal.text = "Final Score: "  + score + " " + gameInfoHolder.exerciseInfo.recordScoreUnits + "\n" + 
+                                gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + highScore + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
     }
 
     void OnApplicationQuit()

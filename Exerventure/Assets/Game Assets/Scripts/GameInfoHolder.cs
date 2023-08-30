@@ -15,32 +15,20 @@ public class GameInfoHolder : Singleton<GameInfoHolder>
     public void SetGameInfo(ExerciseInfo info) => exerciseInfo = info;
     public void PlayCurrentExercise() => SceneManager.LoadScene(exerciseInfo.sceneIndex);
 
-    public string GetSavedScore<T>(string key)
+    public string GetSavedScore()
     {
-        if (PlayerPrefs.HasKey(key))
+        if(exerciseInfo != null)
         {
-            if (typeof(T) == typeof(int))
+            if(exerciseInfo.scoreType == ExerciseInfo.ScoreType.Integer)
             {
-                return PlayerPrefs.GetInt(key).ToString();
+                return PlayerPrefs.GetInt(exerciseInfo.scoreSaveKey).ToString();
             }
-            else if (typeof(T) == typeof(float))
+            if(exerciseInfo.scoreType == ExerciseInfo.ScoreType.Float)
             {
-                return PlayerPrefs.GetFloat(key).ToString();
-            }
-            else if (typeof(T) == typeof(string))
-            {
-                return PlayerPrefs.GetString(key);
-            }
-            else
-            {
-                Debug.LogWarning("Unsupported data type for PlayerPrefs key: " + typeof(T));
-                return null;
+                return PlayerPrefs.GetFloat(exerciseInfo.scoreSaveKey).ToString("F2");
             }
         }
-        else
-        {
-            Debug.LogWarning("PlayerPrefs key not found: " + key);
-            return null;
-        }
+
+        return "";
     }
 }
