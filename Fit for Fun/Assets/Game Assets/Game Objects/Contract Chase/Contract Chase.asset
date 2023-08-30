@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Contract Chase
   m_EditorClassIdentifier: 
   title: Contract Chase
-  gameSummary: As the preeminent bounty hunter of the town, a nefarious crime has
-    been perpetrated, followed by an attempted escape. It falls upon you to relentlessly
+  gameSummary: A nefarious crime has been perpetrated in a town, followed by an attempted
+    escape.  As the preeminent bounty hunter of the town, it falls upon you to relentlessly
     pursue the perpetrator, chasing through the rugged trail by doing high knees,
     all in the steadfast pursuit of upholding justice.
   gameInstructions: Stand in one spot and lift your knees up towards your chest one

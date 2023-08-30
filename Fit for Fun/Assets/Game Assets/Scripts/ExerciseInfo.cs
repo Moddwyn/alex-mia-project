@@ -4,7 +4,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Video;
 
-[CreateAssetMenu(fileName = "Exercise Info", menuName = "Exerventure/Exercise Info", order = 0)]
+[CreateAssetMenu(fileName = "Exercise Info", menuName = "Fit For Fun/Exercise Info", order = 0)]
 public class ExerciseInfo : ScriptableObject
 {
     public string title;

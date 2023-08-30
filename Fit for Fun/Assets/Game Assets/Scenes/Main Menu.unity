@@ -12341,7 +12341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EXERVENTURE
+  m_text: fit for fun
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d25534d74bfc9d44bb76f99dde1154ab, type: 2}
   m_sharedMaterial: {fileID: 8029534652553028452, guid: d25534d74bfc9d44bb76f99dde1154ab, type: 2}
@@ -12368,7 +12368,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 121.25
+  m_fontSize: 149.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
