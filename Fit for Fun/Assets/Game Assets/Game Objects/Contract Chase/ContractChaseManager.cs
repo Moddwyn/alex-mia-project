@@ -6,7 +6,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ContractChaseManager : MonoBehaviour
+public class ContractChaseManager : Singleton<ContractChaseManager>
 {
     public UnityEvent OnGameStart;
     public UnityEvent OnCaught;
@@ -46,10 +46,17 @@ public class ContractChaseManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKeyDown && !gameStarted) StartGame();
-
         UpdateTimeControls();
         UpdateTexts();
+    }
+
+    public void PerformRunAction()
+    {
+        if (gameStarted && !gameEnded)
+        {
+            timeSinceLastSpacePress = 0;
+            timeBeforeCaught = timeCaught;
+        }
     }
 
     void UpdateTimeControls()

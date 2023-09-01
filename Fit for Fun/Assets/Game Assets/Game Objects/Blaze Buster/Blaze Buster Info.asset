@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Blaze Buster Info
   m_EditorClassIdentifier: 
   title: Blaze Buster
+  exercise: Squats
+  icon: {fileID: 21300000, guid: 546e501da59dbd349b7ed077d414dc64, type: 3}
   gameSummary: Children had been playing in a house, when they accidentally turned
     on the stove and unknowingly set their house on fire!  Being a renowned and fearless
     firefighter, you were summoned to the scene and came prepared with a hose.  Using
@@ -23,8 +25,8 @@ MonoBehaviour:
     is comfortable. Push through your heels to stand back up. Repeat this motion
     to do a squat. Squatting down will push down on the water pipe to spray water
     at the burning house. Taking out the fire will result in victory.
-  animationVideo: {fileID: 0}
-  gamePreviewVideo: {fileID: 0}
+  animationVideo: {fileID: 32900000, guid: 9ff1583598403b048aefc23c60bbcb31, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: 9ff1583598403b048aefc23c60bbcb31, type: 3}
   recordScoreHeader: Lowest Time
   recordScoreUnits: s
   scoreSaveKey: BlazeHigh

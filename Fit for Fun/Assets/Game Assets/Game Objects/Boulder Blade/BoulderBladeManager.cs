@@ -42,7 +42,7 @@ public class BoulderBladeManager : Singleton<BoulderBladeManager>
         player.OnDeath?.AddListener(SaveGame);
     }
 
-    void StartGame()
+    public void StartGame()
     {
         gameStarted = true;
         canSpawn = true;
@@ -55,8 +55,6 @@ public class BoulderBladeManager : Singleton<BoulderBladeManager>
 
     void Update()
     {
-        if (Input.anyKeyDown && !gameStarted) StartGame();
-
         scoreText.text = "Score: "  + score + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         highScoreText.text = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + highScore + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
     }

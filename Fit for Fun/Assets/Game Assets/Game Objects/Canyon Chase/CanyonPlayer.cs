@@ -4,7 +4,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CanyonPlayer : MonoBehaviour
+public class CanyonPlayer : Singleton<CanyonPlayer>
 {
     public UnityEvent OnDeath;
     [HorizontalLine]
@@ -12,7 +12,7 @@ public class CanyonPlayer : MonoBehaviour
 
     CanyonChaseManager manager;
 
-    bool left;    
+    bool left;
 
     void Start()
     {
@@ -21,17 +21,25 @@ public class CanyonPlayer : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && manager.gameStarted && !manager.gameEnded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             left = !left;
             manager.sfxSource.PlayOneShot(manager.playerMoveClip);
         }
 
-        
         transform.position = Vector3.Lerp(transform.position
         , new Vector3(manager.gameStarted ? (left ? -5 : 5) : 0
         , transform.position.y, transform.position.z)
         , Time.deltaTime * sideSpeed);
+    }
+
+    public void PerformSideAction(int side)
+    {
+        if (manager.gameStarted && !manager.gameEnded)
+        {
+            left = side == 1;
+            manager.sfxSource.PlayOneShot(manager.playerMoveClip);
+        }
     }
 
     void OnCollisionEnter(Collision other)

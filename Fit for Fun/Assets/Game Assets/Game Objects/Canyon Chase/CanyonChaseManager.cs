@@ -45,7 +45,7 @@ public class CanyonChaseManager : Singleton<CanyonChaseManager>
         player.OnDeath?.AddListener(SaveGame);
     }
 
-    void StartGame()
+    public void StartGame()
     {
         gameStarted = true;
         OnGameStart?.Invoke();
@@ -54,8 +54,6 @@ public class CanyonChaseManager : Singleton<CanyonChaseManager>
     void Update()
     {
         UpdateTimeText();
-
-        if (Input.anyKeyDown && !gameStarted) StartGame();
     }
 
     void UpdateTimeText()

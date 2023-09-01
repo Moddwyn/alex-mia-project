@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Canyon Chase Info
   m_EditorClassIdentifier: 
   title: Canyon Chase
+  exercise: Side to Side
+  icon: {fileID: 21300000, guid: 512b2fcbb280d9d48ac91b913a02ecad, type: 3}
   gameSummary: While traversing a desert canyon, an unexpected encounter unfolds
     as an alien nest comes into view. Subsequently, a pursuit ensues, featuring a
     pair of ravenous extraterrestrial beings. Swiftly navigating the terrain, you
@@ -21,8 +23,8 @@ MonoBehaviour:
     jumps to initiate corresponding slides to the right. Exercise caution to avoid
     collisions with objects, as such an occurrence would lead to the aliens catching
     you and resulting in game over.
-  animationVideo: {fileID: 0}
-  gamePreviewVideo: {fileID: 0}
+  animationVideo: {fileID: 32900000, guid: c779e7404b0b8824ebd9e85b51811647, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: c779e7404b0b8824ebd9e85b51811647, type: 3}
   recordScoreHeader: Highest Time
   recordScoreUnits: s
   scoreSaveKey: CanyonHigh

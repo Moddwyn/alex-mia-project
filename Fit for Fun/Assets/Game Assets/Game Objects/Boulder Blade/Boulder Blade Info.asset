@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: Boulder Blade Info
   m_EditorClassIdentifier: 
   title: Boulder Blade
-  gameSummary: After a mission went awry in the far mountains, a knight is left to
-    fend for survival as an avalanche threatens what little there is to fight for. 
-    Armed with nothing but two swords and an unwavering resolve, the knight engages
-    in a daring windmill dance of steel against the unrelenting forces of nature,
-    a testament of valor etched in the clash between blade and stone.
+  exercise: Arm Circles
+  icon: {fileID: 21300000, guid: ef33614bd9fea8b419b7a24cc5f471ea, type: 3}
+  gameSummary: Amidst the chaos of a raging avalanche, a lone knight stood resolute
+    on the mountainside. Armed with two gleaming swords, he deftly whirled and sliced
+    at the colossal boulders hurtling down towards him by rotating his arms forward
+    for each swing.
   gameInstructions: Execute a sweeping circular gesture with your left arm to set
     your left sword in motion, mirrored by a similar motion with your right arm for
     the right sword. Combine both arm movements simultaneously in a forward circular
     motion to synchronize the swing of both swords. Caution is paramount, as enduring
-    five strikes culminates in perilous defeat.
-  animationVideo: {fileID: 0}
-  gamePreviewVideo: {fileID: 0}
+    five hits from boulders will cause defeat.
+  animationVideo: {fileID: 32900000, guid: 51bd589bb267d8f4d80f6bf7c00af494, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: 51bd589bb267d8f4d80f6bf7c00af494, type: 3}
   recordScoreHeader: Highest Score
   recordScoreUnits: pts
   scoreSaveKey: BoulderHigh

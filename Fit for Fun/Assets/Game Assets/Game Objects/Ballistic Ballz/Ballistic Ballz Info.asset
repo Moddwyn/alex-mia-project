@@ -13,15 +13,21 @@ MonoBehaviour:
   m_Name: Ballistic Ballz Info
   m_EditorClassIdentifier: 
   title: Ballistic Ballz
+  exercise: Side Shuffle
+  icon: {fileID: 21300000, guid: d07302c34b9c59e4391c03a6419ce700, type: 3}
   gameSummary: Pirates have come to raid your island, seeing valuable treasure that
     they wish to take for themselves.  As they begin to fire upon you with their
-    ship's cannons, you must do single leg stands to move out of the way and try
+    ship's cannons, you must shuffle side to side to move out of the way and try
     to avoid the projectiles.
-  gameInstructions: Stand on your left leg to run left and stand your right leg to
-    run right.  Avoid the cannonballs to survive as long as possible, but if you
-    get struck five times, you will lose.
-  animationVideo: {fileID: 0}
-  gamePreviewVideo: {fileID: 0}
+  gameInstructions: Take a step to the left with one foot, then bring your right
+    foot over to meet the left one, shoulder width apart resulting in a squatting
+    position. Then touch your left foot with your left hand to move the player to
+    the left. And vise versa to the right. Keep doing this back and forth, to avoid
+    the cannonballs and survive as long as possible, but if you get struck five times,
+    you will lose. You can stand do a squatting position in the middle of the screen
+    to stand still.
+  animationVideo: {fileID: 32900000, guid: 7a0c10116ef9f8544905fdeded02ef8a, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: 7a0c10116ef9f8544905fdeded02ef8a, type: 3}
   recordScoreHeader: Highest Score
   recordScoreUnits: pts
   scoreSaveKey: BallisticHigh

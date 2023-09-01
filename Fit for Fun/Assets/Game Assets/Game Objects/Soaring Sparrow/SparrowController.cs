@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody))]
-public class SparrowController : MonoBehaviour
+public class SparrowController : Singleton<SparrowController>
 {
     Rigidbody bird;
     public UnityEvent OnDeath;
@@ -69,6 +69,7 @@ public class SparrowController : MonoBehaviour
 
     public void Flap()
     {
+        if (manager.gameEnded && !manager.gameStarted) return;
         bird.velocity = Vector3.up * jumpForce;
         sfxSource.PlayOneShot(flapSound);
     }

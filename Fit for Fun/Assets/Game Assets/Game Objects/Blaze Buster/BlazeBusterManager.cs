@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class BlazeBusterManager : MonoBehaviour
+public class BlazeBusterManager : Singleton<BlazeBusterManager>
 {
     public UnityEvent OnGameStart;
     public UnityEvent OnFireOut;
@@ -49,7 +49,7 @@ public class BlazeBusterManager : MonoBehaviour
         OnFireOut?.AddListener(SaveGame);
     }
 
-    void StartGame()
+    public void StartGame()
     {
         gameStarted = true;
         OnGameStart?.Invoke();
@@ -61,17 +61,21 @@ public class BlazeBusterManager : MonoBehaviour
     {
         UpdateTimeText();
 
-        if (Input.anyKeyDown && !gameStarted) StartGame();
         if (Input.GetKeyDown(KeyCode.Space) && gameStarted && !gameEnded)
         {
-            waterSprayParticle.Stop();
-            waterSprayParticle.Play();
-            sfxSource.PlayOneShot(waterSpray);
-
-            RemoveFire(1);
+            PerformWaterAction();
         }
 
         fireLeftFill.fillAmount = Mathf.MoveTowards(fireLeftFill.fillAmount, Mathf.InverseLerp(0, maxFireLeft, fireLeft), Time.deltaTime * 2);
+    }
+
+    public void PerformWaterAction()
+    {
+        waterSprayParticle.Stop();
+        waterSprayParticle.Play();
+        sfxSource.PlayOneShot(waterSpray);
+
+        RemoveFire(1);
     }
 
     void RemoveFire(int amount)

@@ -8,6 +8,8 @@ using UnityEngine.Video;
 public class ExerciseInfo : ScriptableObject
 {
     public string title;
+    public string exercise;
+    public Sprite icon;
 
     [InfoBox("The game summary containing lore and quick explanation of the exercise")]
     [ResizableTextArea]

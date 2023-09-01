@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class BoulderBladePlayer : MonoBehaviour
+public class BoulderBladePlayer : Singleton<BoulderBladePlayer>
 {
     public UnityEvent OnDeath;
     public UnityEvent OnDamage;
@@ -41,6 +41,21 @@ public class BoulderBladePlayer : MonoBehaviour
         }
 
         healthFill.fillAmount = Mathf.MoveTowards(healthFill.fillAmount, Mathf.InverseLerp(0, maxHealth, health), Time.deltaTime * 2);
+    }
+
+    public void SliceAction(int side)
+    {
+        if (canSlice)
+        {
+            if(side == 1)
+            {
+                leftSword.anim.SetTrigger("Slice L");
+            }
+            if(side == 2)
+            {
+                rightSword.anim.SetTrigger("Slice R");
+            }
+        }
     }
 
     public void DoDamage(int damage)

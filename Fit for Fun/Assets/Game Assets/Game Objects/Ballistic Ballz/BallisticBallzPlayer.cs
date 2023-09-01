@@ -7,13 +7,14 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
-public class BallisticBallzPlayer : MonoBehaviour
+public class BallisticBallzPlayer : Singleton<BallisticBallzPlayer>
 {
     public UnityEvent OnDeath;
     public UnityEvent OnDamage;
     [ReadOnly] public bool canMove;
 
     [HorizontalLine]
+    public bool keyboardControls;
     public float movementSpeed = 5f;
     public float gravity = 9.81f; // Adjust the gravity force as needed
     public int health;
@@ -28,6 +29,7 @@ public class BallisticBallzPlayer : MonoBehaviour
     int maxHealth;
 
     float animTrans;
+    [ReadOnly] public float horizontalInput;
 
     void Start()
     {
@@ -39,7 +41,8 @@ public class BallisticBallzPlayer : MonoBehaviour
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        if(keyboardControls)
+            horizontalInput = Input.GetAxis("Horizontal");
         animTrans = Mathf.Lerp(animTrans, horizontalInput, Time.deltaTime * 5);
         anim.SetFloat("Speed", animTrans);
 

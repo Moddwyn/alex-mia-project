@@ -43,10 +43,9 @@ public class SoaringSparrowManager : Singleton<SoaringSparrowManager>
         scoreText.text = "Score: "  + score + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
         highScoreText.text = gameInfoHolder.exerciseInfo.recordScoreHeader + ": " + highScore + " " + gameInfoHolder.exerciseInfo.recordScoreUnits;
 
-        if(Input.GetKeyDown(KeyCode.Space) && !gameStarted) StartGame();
     }
 
-    void StartGame()
+    public void StartGame()
     {
         gameStarted = true;
         OnGameStart?.Invoke();

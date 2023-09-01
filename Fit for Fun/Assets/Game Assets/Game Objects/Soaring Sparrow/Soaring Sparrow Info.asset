@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Soaring Sparrow Info
   m_EditorClassIdentifier: 
   title: Soaring Sparrow
+  exercise: Jumping Jacks
+  icon: {fileID: 21300000, guid: a50aa0d710536e141abc0195c0f55b54, type: 3}
   gameSummary: Being motivated by a natural instinct to find a secure and secluded
     location for its nest, a bird curiously ventured into the pipe maze. Intrigued
     by the twists and turns, it hopped and flapped its wings with the same energy
@@ -23,8 +25,8 @@ MonoBehaviour:
     fly up.  Afterwards, jump back into the starting position and repeat the process. 
     Don't let the bird fall into the pit below, or get too high or make contact with
     any pipes, or else the bird won't reach its potential nest.
-  animationVideo: {fileID: 0}
-  gamePreviewVideo: {fileID: 0}
+  animationVideo: {fileID: 32900000, guid: daceb90a02a71714d85e17b6eaf2ca8a, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: daceb90a02a71714d85e17b6eaf2ca8a, type: 3}
   recordScoreHeader: Highest Score
   recordScoreUnits: pts
   scoreSaveKey: SparrowHigh
