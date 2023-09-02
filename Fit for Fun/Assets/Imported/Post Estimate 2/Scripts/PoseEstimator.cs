@@ -447,8 +447,7 @@ public class PoseEstimator : MonoBehaviour
     // OnDisable is called when the MonoBehavior becomes disabled or inactive
     private void OnDisable()
     {
-            engine.Dispose();
-        
+            // engine.Dispose();
     }
 
     public void OnUserInput()
