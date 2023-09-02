@@ -26,7 +26,7 @@ MonoBehaviour:
     Don't let the bird fall into the pit below, or get too high or make contact with
     any pipes, or else the bird won't reach its potential nest.
   animationVideo: {fileID: 32900000, guid: daceb90a02a71714d85e17b6eaf2ca8a, type: 3}
-  gamePreviewVideo: {fileID: 32900000, guid: daceb90a02a71714d85e17b6eaf2ca8a, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: 7cf74785e8b6c2949b724c18ca8056c8, type: 3}
   recordScoreHeader: Highest Score
   recordScoreUnits: pts
   scoreSaveKey: SparrowHigh

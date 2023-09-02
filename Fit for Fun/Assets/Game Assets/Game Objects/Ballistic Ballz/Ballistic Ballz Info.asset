@@ -27,7 +27,7 @@ MonoBehaviour:
     you will lose. You can stand do a squatting position in the middle of the screen
     to stand still.
   animationVideo: {fileID: 32900000, guid: 7a0c10116ef9f8544905fdeded02ef8a, type: 3}
-  gamePreviewVideo: {fileID: 32900000, guid: 7a0c10116ef9f8544905fdeded02ef8a, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: 66289727124094049973f281edfed921, type: 3}
   recordScoreHeader: Highest Score
   recordScoreUnits: pts
   scoreSaveKey: BallisticHigh

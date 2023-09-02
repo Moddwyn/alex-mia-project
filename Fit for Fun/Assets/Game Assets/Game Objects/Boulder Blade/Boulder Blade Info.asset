@@ -25,7 +25,7 @@ MonoBehaviour:
     motion to synchronize the swing of both swords. Caution is paramount, as enduring
     five hits from boulders will cause defeat.
   animationVideo: {fileID: 32900000, guid: 51bd589bb267d8f4d80f6bf7c00af494, type: 3}
-  gamePreviewVideo: {fileID: 32900000, guid: 51bd589bb267d8f4d80f6bf7c00af494, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: 71b934b579fd9e54e860aaad83f4a0d8, type: 3}
   recordScoreHeader: Highest Score
   recordScoreUnits: pts
   scoreSaveKey: BoulderHigh

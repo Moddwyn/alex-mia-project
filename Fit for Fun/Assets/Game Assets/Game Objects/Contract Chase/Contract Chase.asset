@@ -23,7 +23,7 @@ MonoBehaviour:
     at a time, as if you're marching really high. After 2 seconds of no activity,
     you have 5 seconds of grace before the perpetrator get away and loose the game.
   animationVideo: {fileID: 32900000, guid: fb0fc49b667440049b11ed394401a578, type: 3}
-  gamePreviewVideo: {fileID: 32900000, guid: fb0fc49b667440049b11ed394401a578, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: 1d64f5a14b874d346865494b581afb1c, type: 3}
   recordScoreHeader: Highest Time
   recordScoreUnits: s
   scoreSaveKey: ContractHigh

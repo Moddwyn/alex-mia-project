@@ -26,7 +26,7 @@ MonoBehaviour:
     to do a squat. Squatting down will push down on the water pipe to spray water
     at the burning house. Taking out the fire will result in victory.
   animationVideo: {fileID: 32900000, guid: 9ff1583598403b048aefc23c60bbcb31, type: 3}
-  gamePreviewVideo: {fileID: 32900000, guid: 9ff1583598403b048aefc23c60bbcb31, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: 48d73dffc9a983448ac647e7b9ab5b57, type: 3}
   recordScoreHeader: Lowest Time
   recordScoreUnits: s
   scoreSaveKey: BlazeHigh

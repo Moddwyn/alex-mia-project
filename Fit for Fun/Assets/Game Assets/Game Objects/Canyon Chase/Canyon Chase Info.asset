@@ -24,7 +24,7 @@ MonoBehaviour:
     collisions with objects, as such an occurrence would lead to the aliens catching
     you and resulting in game over.
   animationVideo: {fileID: 32900000, guid: c779e7404b0b8824ebd9e85b51811647, type: 3}
-  gamePreviewVideo: {fileID: 32900000, guid: c779e7404b0b8824ebd9e85b51811647, type: 3}
+  gamePreviewVideo: {fileID: 32900000, guid: c533d2f120986024bac91a905cb4bbfe, type: 3}
   recordScoreHeader: Highest Time
   recordScoreUnits: s
   scoreSaveKey: CanyonHigh
