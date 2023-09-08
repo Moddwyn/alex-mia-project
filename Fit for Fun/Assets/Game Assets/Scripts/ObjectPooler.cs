@@ -74,7 +74,7 @@ public class ObjectPooler : MonoBehaviour
         }
 
         // Get the gameObject from the bottom of the list
-        GameObject gameObject = pool[^1];
+        GameObject gameObject = pool[pool.Count - 1];
 
         // Remove the gameObject from the list
         pool.RemoveAt(pool.Count - 1);

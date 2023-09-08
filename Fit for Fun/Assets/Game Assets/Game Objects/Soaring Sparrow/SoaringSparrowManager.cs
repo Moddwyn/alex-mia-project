@@ -23,7 +23,7 @@ public class SoaringSparrowManager : Singleton<SoaringSparrowManager>
     public int startChunkCount = 10;
     public int spacing = 10;
     public float forwardSpeed;
-    public Vector2 yChangeRange = new(-10, 10);
+    public Vector2 yChangeRange = new Vector3(-10, 10);
     public List<Transform> spawnedChunks;
 
     GameInfoHolder gameInfoHolder;
@@ -63,7 +63,7 @@ public class SoaringSparrowManager : Singleton<SoaringSparrowManager>
     {
         if(spawnedChunks.Count == 0) return;
 
-        Vector3 newPos = new(0, 0, spawnedChunks[^1].position.z + spacing);
+        Vector3 newPos = new Vector3(0, 0, spawnedChunks[spawnedChunks.Count - 1].position.z + spacing   );
         Transform newChunk = Instantiate(pipeChunk, newPos, Quaternion.identity).transform;
 
         int changeInY = Random.Range((int)yChangeRange.x, (int)yChangeRange.y + 1);

@@ -94,7 +94,7 @@ public class CanyonChaseManager : Singleton<CanyonChaseManager>
     {
         if (spawnedChunks.Count == 0) return;
 
-        Vector3 newPos = new(0, 0, spawnedChunks[^1].position.z + spacing);
+        Vector3 newPos = new Vector3(0, 0, spawnedChunks[spawnedChunks.Count - 1].position.z + spacing);
         Transform newChunk = Instantiate(chunk, newPos, Quaternion.identity).transform;
         spawnedChunks.Add(newChunk);
 
